@@ -1,0 +1,35 @@
+.footer-wrapper{
+    height: 100px;
+    background-color: #F1F5FB;;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.left-section{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-brand-name{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: #000000;
+}
+
+.nav-list{
+  display: flex;
+  flex: row;
+  align-items: center;
+}
+.footer-brand-logo{
+  margin-right: 20px;
+  margin-left: 30px;
+}

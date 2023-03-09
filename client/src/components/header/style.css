@@ -1,0 +1,72 @@
+.header-wrapper{
+    height: 100%;
+    background-color: #212121;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.left-section{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-image{
+    margin-left: 50px;
+    width: 120.93px;
+    height: 50.7px;
+}
+
+.brand-name{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 27px;
+  margin-left: 50px;
+  color: #FFFFFF;
+}
+
+.nav-list{
+  display: flex;
+  flex: row;
+  align-items: center;
+}
+
+.logout-btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 110px;
+  height: 45px;
+  background-color: #5AEE95;
+  border-radius: 5px;
+  color: #212121;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  cursor: pointer;
+}
+
+.navList-item{
+  margin-right: 50px;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: #D9D9D9;
+  cursor: pointer;
+}
+
+.navList-item-active{
+  font-weight: 700;
+  color: #FFFFFF;
+  padding-bottom: 5px;
+  border-bottom: 2px solid #5AEE95;
+}

@@ -1,1 +1,105 @@
+.sideNav-wrapper{
+    width: 390px;
+    margin-top: 25px;
+    background-color: #212121;
+    border-radius: 0px 10px 0px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-bottom-right-radius: 10px;
+}
 
+.top-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 50px;
+  padding-top: 40px;
+
+}
+
+.bottom-section{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 50px 20px;
+  border-top: 0.5px solid #B7B7B7;
+}
+.bg-red{
+  background-color: #E2001D;
+}
+.bg-green{
+  background-color: #5AEE95;;
+}
+.bg-black{
+  background-color: #44464A;
+}
+.button-element{
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-items: center;
+  text-align: center;
+}
+
+.sideNavButtons{
+  width: auto;
+  height: auto;
+}
+
+
+.sideNav-link{
+  margin-top: 85px;
+  margin-bottom: 60px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.sideNav-link:hover{
+  color: #5AEE95;
+}
+.tick-icon{
+  width: 20px;
+  height: 10px;
+}
+.link-text{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  max-width: 150px;
+  margin-right: 20px;
+}
+
+.step-indicator{
+  position: absolute;
+  left: -40px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.middle-circle{
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #212121;
+}
+.step-bar{
+  position: absolute;
+  left: -7px;
+  width: 10px;
+  height: 267px;
+  z-index: 0;
+}

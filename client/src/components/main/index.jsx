@@ -1,12 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import './style.css'
 
-function Main(props) {
+function MainSection(props) {
   return (
-    <div>Main</div>
+    <div className='mainSection-wrapper'>
+      DIBD
+    </div>
   )
 }
 
-Main.propTypes = {}
+MainSection.propTypes = {}
 
-export default Main
+export default MainSection
