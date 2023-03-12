@@ -76,7 +76,7 @@ function HomeEntityManager(props) {
           <div className='Subsection-title'>Foreign Company</div>
           <div className='input-section'>
               <div className='standard-input-label'>Company Autocompletion</div>
-              <div className='standard-input standard-select' style={{width: "500px"}}>
+              <div className='standard-input standard-select' >
                 <select value={selectedValue} className='standard-input-select' onChange={handleSelectChange}>
                   <option value="">-- Select an option --</option>
                   <option value="option1">Option 1</option>

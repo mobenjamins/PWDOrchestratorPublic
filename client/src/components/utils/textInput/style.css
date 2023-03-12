@@ -1,0 +1,36 @@
+.input-section{
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+}
+.standard-input-label{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  color: #000000;
+  opacity: 0.8;
+  margin-bottom: 10px;
+}
+.standard-input{
+  background: #F1F5FB;
+  border: 1px solid #CAD9EE;
+  border-radius: 10px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: #70737A;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.standard-input:focus{
+  outline: none;
+  border: 1.5px solid #5AEE95;
+}

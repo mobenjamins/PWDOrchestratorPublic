@@ -60,6 +60,8 @@ line-height: 41px;
   background-repeat: no-repeat;
   background-position: 95% 50%;
   border: 0px;
+  width: 450px;
+  padding: 5px 0px;
 }
 .standard-select:focus{
   outline: none;
