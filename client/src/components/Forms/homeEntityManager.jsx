@@ -3,7 +3,9 @@ import PropTypes from 'prop-types'
 import './style.css'
 import QuestionHeader from '../QuestionSection/header'
 import InfoIcon from '../../assets/info-icon.png'
-import dropDownIcon from '../../assets/dropdown-icon.png'
+import DropdownComponent from '../utils/dropdown'
+import TextInputComponent from '../utils/textInput'
+import RadioselectComponent from '../utils/radioSelect'
 
 const allRadioOptions = [
   {
@@ -21,6 +23,21 @@ const allRadioOptions = [
   {
     title: 'Other payment arrangements',
     isSelected: false
+  },
+]
+
+const dummyOptions = [
+  {
+    title: 'Try this out',
+    label: 'Try this out'
+  },
+  {
+    title: 'Wanna test',
+    label: 'Wanna test'
+  },
+  {
+    title: 'Optional figures',
+    label: 'Optional figures'
   },
 ]
 
@@ -73,18 +90,13 @@ function HomeEntityManager(props) {
        </div>
 
        <div className='question-section'>
+          <div className='Subsection-title'>Identity of the home  entity </div>
+          <TextInputComponent onChange={(e)=> console.log(e)} placeholder="Comapny autocompletion222 ( via name of the foreign )" label="Company Autocompletion 22" />
+       </div>
+
+       <div className='question-section'>
           <div className='Subsection-title'>Foreign Company</div>
-          <div className='input-section'>
-              <div className='standard-input-label'>Company Autocompletion</div>
-              <div className='standard-input standard-select' >
-                <select value={selectedValue} className='standard-input-select' onChange={handleSelectChange}>
-                  <option value="">-- Select an option --</option>
-                  <option value="option1">Option 1</option>
-                  <option value="option2">Option 2</option>
-                  <option value="option3">Option 3</option>
-                </select>
-              </div>
-          </div>
+          <DropdownComponent label="Company Autocompletion" options={dummyOptions} onChange={(e)=>console.log("WORKED ", e)} />
        </div>
 
 
@@ -93,32 +105,11 @@ function HomeEntityManager(props) {
           {
             radioOptions.map((item, index) => {
               return (
-                <div key={index} className='radio-inputs' onClick={()=> onRadioHandler(item)}>
-                      <div className='radiio-question'>
-                        <div className='radio-input' style={{
-                        borderColor: item.isSelected ? '#F48C07' : '#70737A'
-                      }}>
-                          <div className='radio-unput-selected' style={{
-                          display: item.isSelected ? 'flex' : 'none',
-                        }}/>
-                        </div>
-                        <div className='radio-question-title' style={{
-                        color: item.isSelected ? '#212529' : '#70737A'
-                        }}>Direct payment by the employer</div>
-                      </div>
-                    </div>
+                <RadioselectComponent item={item} onChange={onRadioHandler} />
               )
             }
             )
           }
-          {/* <div className='radio-inputs'>
-            <div className='radiio-question'>
-              <div className='radio-input'>
-                <div className='radio-unput-selected' />
-              </div>
-              <div className='radio-question-title'>Direct payment by the employer</div>
-            </div>
-          </div> */}
        </div>
       
     </div>

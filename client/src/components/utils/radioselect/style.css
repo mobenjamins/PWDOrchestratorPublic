@@ -1,0 +1,40 @@
+.radio-inputs{
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+.radio-inputs:hover{
+  cursor: pointer;
+}
+
+.radiio-question{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.radio-input{
+  width: 30px;
+  height: 30px;
+  border: 2px solid #70737A;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15px;
+}
+.radio-unput-selected{
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #F48C07;
+  border: 2px solid #F48C07;
+}
+.radio-question-title{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: #70737A;
+}
