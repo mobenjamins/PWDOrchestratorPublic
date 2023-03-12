@@ -54,18 +54,6 @@ line-height: 41px;
   justify-content: space-between;
 }
 
-.standard-select{
-  background-image: url('../../assets/dropdown-icon.png');
-  background-size: 20px;
-  background-repeat: no-repeat;
-  background-position: 95% 50%;
-  border: 0px;
-}
-.standard-select:focus{
-  outline: none;
-  border: 0px;
-}
-
 .standard-input:focus{
   outline: none;
   border: 1.5px solid #5AEE95;
@@ -124,6 +112,8 @@ line-height: 41px;
 
 .standard-input-select{
   background: transparent;
+  /* border: 1px solid #CAD9EE;
+  border-radius: 10px; */
   border: 0px;
   font-family: 'Montserrat';
   font-style: normal;
@@ -137,11 +127,6 @@ line-height: 41px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-}
-
-.standard-input-select:focus{
-  outline: none;
-  border: 0px;
 }
 
 .radio-input{
@@ -168,4 +153,30 @@ line-height: 41px;
   font-size: 16px;
   line-height: 20px;
   color: #70737A;
+}
+
+
+select {
+  -webkit-appearance: none; /* Remove default appearance on Safari */
+  -moz-appearance: none; /* Remove default appearance on Firefox */
+  appearance: none; /* Remove default appearance on other browsers */
+
+  background-image: url('../../assets/footer-logo2.png');
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 16px 16px; /* Set the size of your custom icon */
+  padding-right: 24px; /* Add some padding to make room for the custom icon */
+}
+
+select::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 8px; /* Adjust the position of the custom icon */
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 5px 0 5px; /* Adjust the size of the custom icon */
+  border-color: #000 transparent transparent transparent;
+  transform: translateY(-50%);
 }
