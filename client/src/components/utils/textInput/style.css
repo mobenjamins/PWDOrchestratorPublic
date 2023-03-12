@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   margin-top: 15px;
+  margin-right: 10px;
 }
 .standard-input-label{
   font-family: 'Montserrat';
@@ -28,6 +29,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  min-width: 400px;
 }
 
 .standard-input:focus{

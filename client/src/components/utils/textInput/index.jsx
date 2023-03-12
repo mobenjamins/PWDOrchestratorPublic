@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import './style.css'
 import InfoIcon from '../../../assets/info-icon.png'
 
-function TextInputComponent({onChange, label, placeholder, defaultValue}) {
+function TextInputComponent({onChange, label, placeholder, defaultValue, style}) {
   const [value, setValue] = useState(defaultValue || '');
 
   const handleSelectChange = (event) => {
@@ -12,7 +12,7 @@ function TextInputComponent({onChange, label, placeholder, defaultValue}) {
   }
 
   return (
-        <div className='input-section'>
+        <div className='input-section' style={style}>
             <div className='standard-input-label'>{label}</div>
             <div className='standard-input'>
               <input value={value} className='input-field' placeholder={placeholder} onChange={(e)=>handleSelectChange(e)} />
