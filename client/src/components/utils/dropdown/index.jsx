@@ -17,7 +17,7 @@ function DropdownComponent({options, onChange, label}) {
             <select value={selectedValue} className='standard-input-select' onChange={handleSelectChange}>
             {
               options.map((option, index) => {
-                return <option key={index} value={option.value}>{option.label}</option>
+                return <option key={index} value={option.value}>{option.title}</option>
               }
             )
             }

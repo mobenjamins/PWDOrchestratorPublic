@@ -33,7 +33,7 @@ function MainSection({activeForm}) {
     } else {
       console.log("rendering default")
       return (
-      <QuestionSection />
+      <HomeEntityManager />
       )
     }
   }

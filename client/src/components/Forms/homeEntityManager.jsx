@@ -9,6 +9,24 @@ import RadioselectComponent from '../utils/radioSelect'
 
 const allRadioOptions = [
   {
+    title: 'On the premise of the customer or Recipient of the service?',
+    isSelected: false
+  },
+  {
+    title: 'Somewhere else',
+    isSelected: false
+  },
+  {
+    title: 'Payment of a lump sum',
+    isSelected: false
+  },
+  {
+    title: 'Other payment arrangements',
+    isSelected: false
+  },
+]
+
+const accomodationExpensesOptions =  [{
     title: 'Direct payment by the employer',
     isSelected: false
   },
@@ -17,7 +35,25 @@ const allRadioOptions = [
     isSelected: false
   },
   {
-    title: 'Payment of a lump sum ',
+    title: 'Payment of a lump sum',
+    isSelected: false
+  },
+  {
+    title: 'Other payment arrangements',
+    isSelected: false
+  },
+]
+
+const foodExpensesOptions =  [{
+    title: 'Direct payment by the employer',
+    isSelected: false
+  },
+  {
+    title: 'Reimbursement of costs paid in advance by the worker',
+    isSelected: false
+  },
+  {
+    title: 'Payment of a lump sum',
     isSelected: false
   },
   {
@@ -41,9 +77,25 @@ const dummyOptions = [
   },
 ]
 
+const countries = [
+  {value: 'kenya', title:"Kenya"},
+  {value: 'uganda', title:"Uganda"},
+  {value: 'tanzania', title:"Tanzania"},
+  {value: 'rwanda', title:"Rwanda"},
+  {value: 'burundi', title:"Burundi"},
+  {value: 'somalia', title:"Somalia"},
+  {value: 'ethiopia', title:"Ethiopia"},
+  {value: 'sudan', title:"Sudan"},
+  {value: 'south sudan', title:"South Sudan"},
+  {value: 'eritrea', title:"Eritrea"},
+  {value: 'djibouti', title:"Djibouti"}
+]
+
 function HomeEntityManager(props) {
   const [radioOptions, setRadioOptions] = useState(allRadioOptions)
   const [selectedValue, setSelectedValue] = useState("");
+  const [foodExpenseOptions, setFoodExpenseOptions] = useState(foodExpensesOptions)
+  const [accomodationExpenseOptions, setAccomodationExpenseOptions] = useState(accomodationExpensesOptions)
 
   const handleSelectChange = (event) => {
     setSelectedValue(event.target.value);
@@ -51,6 +103,36 @@ function HomeEntityManager(props) {
 
   const onRadioHandler = (element) => {
     setRadioOptions(radioOptions.map((item, index) => {
+      if(element.title === item.title){
+        return {
+          ...item,
+          isSelected: true
+        }
+      }
+      return {
+        ...item,
+        isSelected: false
+      }
+    }))
+  }
+
+  const accomodationExpenseHandler = (element) => {
+    setAccomodationExpenseOptions(accomodationExpenseOptions.map((item, index) => {
+      if(element.title === item.title){
+        return {
+          ...item,
+          isSelected: true
+        }
+      }
+      return {
+        ...item,
+        isSelected: false
+      }
+    }))
+  }
+
+  const onChangeFoodExpensesHandler = (element) => {
+    setFoodExpenseOptions(foodExpensesOptions.map((item, index) => {
       if(element.title === item.title){
         return {
           ...item,
@@ -90,9 +172,9 @@ function HomeEntityManager(props) {
           }}>
             <TextInputComponent onChange={(e)=> console.log(e)} placeholder="Company name" label="Corporate name" />
             <TextInputComponent onChange={(e)=> console.log(e)} placeholder="Address" label="Address" />
-            <TextInputComponent onChange={(e)=> console.log(e)} placeholder="Country" label="Country" />
+            <DropdownComponent onChange={(value)=>console.log("Country ", value)} options={countries} label="Country of birth" />
             <TextInputComponent onChange={(e)=> console.log(e)} placeholder="Post code" label="PostCode" />
-            <TextInputComponent onChange={(e)=> console.log(e)} placeholder="Town or city" label="Town/City" />
+            <DropdownComponent onChange={(value)=>console.log("Town / city ", value)} options={countries} label="Town / city" />
             <TextInputComponent onChange={(e)=> console.log(e)} placeholder="Address line 2" label="Address line 2" />
             <TextInputComponent onChange={(e)=> console.log(e)} placeholder="phone number" label="Telephone number" />
             <TextInputComponent onChange={(e)=> console.log(e)} placeholder="your email" label="Email" />
@@ -124,9 +206,9 @@ function HomeEntityManager(props) {
             <TextInputComponent onChange={(e)=> console.log(e)} placeholder="Last name" label="Last name" />
             <TextInputComponent onChange={(e)=> console.log(e)} placeholder="First name" label="First name" />
             <TextInputComponent onChange={(e)=> console.log(e)} placeholder="Date of birth" label="Date of birth" />
-            <TextInputComponent onChange={(e)=> console.log(e)} placeholder="Town of birth" label="Town / City of birth" />
+            <DropdownComponent onChange={(value)=>console.log("Town / City of birth ", value)} options={countries} label="Town / City of birth" />
             <TextInputComponent onChange={(e)=> console.log(e)} placeholder="Email" label="Town / City of birth" />
-            <TextInputComponent onChange={(e)=> console.log(e)} placeholder="Country of birth" label="Country of birth" />
+            <DropdownComponent onChange={(value)=>console.log("Country ", value)} options={countries} label="Country of birth" />
           </div>
        </div>
        <div className='question-section'>
@@ -198,8 +280,107 @@ function HomeEntityManager(props) {
             <RadioselectComponent item={{title: 'Unable ?', isSelected: true}} onChange={onRadioHandler} />
           </div>
        </div>
+       <div className='question-section'>
+          <div className='Subsection-title'>Service Sites</div>
+          <div className='standard-input-label' style={{marginTop: "20px"}}>Where will the posted workers work?</div>
+          {
+            radioOptions.map((item, index) => {
+              return (
+                <RadioselectComponent item={item} onChange={onRadioHandler} />
+              )
+            }
+            )
+          }
+       </div>
 
        <div className='question-section'>
+          <div className='Subsection-title'>Travel expenses </div>
+          <div style={{
+            display: 'flex',
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            justifyContent: 'space-between',
+            alignItems: 'flex-start',
+          }}>
+              <div className='question-section'>
+                  <div className='standard-input-label' style={{marginTop: "20px"}}>Travel Expenses Process</div>
+                  {
+                    foodExpenseOptions.map((item, index) => {
+                      return (
+                        <RadioselectComponent item={item} onChange={onChangeFoodExpensesHandler} />
+                      )
+                    }
+                    )
+                  }
+              </div>
+            <TextInputComponent 
+            onChange={(e)=> console.log(e)} 
+            placeholder="Travel Expenses Budget" 
+            label="Travel Expenses Budget"
+             />
+          </div>
+       </div>
+       <div className='question-section'>
+          <div className='Subsection-title'>Living (food) expenses </div>
+          <div style={{
+            display: 'flex',
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            justifyContent: 'space-between',
+            alignItems: 'flex-start',
+          }}>
+              <div className='question-section'>
+                  <div className='standard-input-label' style={{marginTop: "20px"}}>Food Expenses Process</div>
+                  {
+                    foodExpenseOptions.map((item, index) => {
+                      return (
+                        <RadioselectComponent item={item} onChange={onChangeFoodExpensesHandler} />
+                      )
+                    }
+                    )
+                  }
+              </div>
+            <TextInputComponent 
+            onChange={(e)=> console.log(e)} 
+            placeholder="Food Expenses Budget" 
+            label="Food Expenses Budget"
+             />
+          </div>
+       </div>
+       <div className='question-section'>
+          <div className='Subsection-title'>Accommodation Expenses </div>
+          <div style={{
+            display: 'flex',
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            justifyContent: 'space-between',
+            alignItems: 'flex-start',
+          }}>
+              <div className='question-section'>
+                  <div className='standard-input-label' style={{marginTop: "20px"}}>Accommodation Expenses Process </div>
+                  {
+                    accomodationExpenseOptions.map((item, index) => {
+                      return (
+                        <RadioselectComponent item={item} onChange={accomodationExpenseHandler} />
+                      )
+                    }
+                    )
+                  }
+              </div>
+            <TextInputComponent 
+            onChange={(e)=> console.log(e)} 
+            placeholder="Accommodation Expenses Budget" 
+            label="Accommodation Expenses Budget "
+             />
+          </div>
+       </div>
+
+
+
+
+
+
+       {/* <div className='question-section'>
           <div className='Subsection-title'>Foreign Company</div>
           <DropdownComponent label="Company Autocompletion" options={dummyOptions} onChange={(e)=>console.log("WORKED ", e)} />
        </div>
@@ -215,7 +396,7 @@ function HomeEntityManager(props) {
             }
             )
           }
-       </div>
+       </div> */}
       
     </div>
   )
