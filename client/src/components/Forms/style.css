@@ -1,0 +1,234 @@
+.QuestionSection-wrapper{
+  height: 100%;
+}
+.question-header{
+  display: flex;
+  flex-direction: column;
+  font-family: 'Inter';
+  font-style: normal;
+  color: #000000;
+}
+.question-title{
+font-weight: 700;
+font-size: 34px;
+line-height: 41px;
+}
+
+.question-subtitle{
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  margin-top: 10px;
+  margin-bottom: 25px;
+}
+
+.input-section{
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+}
+.standard-input-label{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  color: #000000;
+  opacity: 0.8;
+  margin-bottom: 10px;
+}
+.standard-input{
+  background: #F1F5FB;
+  border: 1px solid #CAD9EE;
+  border-radius: 10px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: #70737A;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.standard-select{
+  background-image: url('../../assets/dropdown-icon.png');
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: 95% 50%;
+  border: 0px;
+}
+.standard-select:focus{
+  outline: none;
+  border: 0px;
+}
+
+.standard-input:focus{
+  outline: none;
+  border: 1.5px solid #5AEE95;
+}
+
+.input-field{
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: none;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: #70737A;
+}
+
+.info-icon{
+  width: 20px;
+  height: 20px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.info-icon:hover{
+  transform: scale(1.2);
+  transition: ease-in-out 0.2s;
+  opacity: 0.8;
+}
+
+.Subsection-title{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  color: #212529;
+  margin-top: 50px;
+}
+
+.radio-inputs{
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+.radio-inputs:hover{
+  cursor: pointer;
+}
+
+.radiio-question{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.standard-input-select{
+  background: transparent;
+  /* border: 1px solid #CAD9EE;
+  border-radius: 10px; */
+  border: 0px;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: #70737A;
+  padding: 20px;
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.standard-input-select:focus{
+  outline: none;
+  border: 0px;
+}
+
+.radio-input{
+  width: 30px;
+  height: 30px;
+  border: 2px solid #70737A;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15px;
+}
+.radio-unput-selected{
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #F48C07;
+  border: 2px solid #F48C07;
+}
+.radio-question-title{
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: #70737A;
+}
+
+
+
+
+/* Path: client/src/components/Forms/style.css */
+
+
+
+.custom-select {
+  position: relative;
+  display: inline-block;
+  border-radius: 5px;
+  overflow: hidden;
+  background-image: url('../../assets/dropdown-icon.png');
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: 95% 50%;
+}
+
+.custom-select select {
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.custom-select select::-ms-expand {
+  display: none;
+}
+
+.custom-select::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  font-size: 14px;
+  color: #333;
+  pointer-events: none;
+}
+
+.custom-select select:focus {
+  outline: none;
+}
+
+.custom-select select:focus + .placeholder {
+  display: none;
+}
+
+.custom-select select option {
+  color: #333;
+  background-color: #fff;
+}
+
+.custom-select select option:checked {
+  background-color: #f1f1f1;
+}

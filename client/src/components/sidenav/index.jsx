@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import PropTypes from 'prop-types'
 import './style.css'
 import tickIcon from '../../assets/tick.png'
@@ -6,38 +6,50 @@ import sideNavRedButton from '../../assets/sideNav-red-icon.png'
 import sideNavGreenButton from '../../assets/sideNav-green.png'
 import sideNavBlackButton from '../../assets/sideNav-black.png'
 
-const sideNavElements = [
+const sideNavElementsTemp = [
   {
-    title: 'Foreign Company',
+    id: 'homeEntity',
+    title: 'Home Entity Manager',
     isActive: true
   },
   {
-    title: 'Customer / Recipient',
-    isActive: true
-  },
-  {
-    title: 'Service Sites',
-    isActive: true
-  },
-  {
-    title: 'Information About The Service',
-    isActive: true
-  },
-  {
-    title: 'Costs',
+    id: 'hostEntity',
+    title: 'Host Entity Manager',
     isActive: false
   },
   {
-    title: 'Employees',
-    isActive: false
-  },
-  {
-    title: 'Representative in France',
+    id: 'employee',
+    title: 'Employee',
     isActive: false
   }
 ]
 
-function SideNav(props) {
+function SideNav({setActiveForm}) {
+  const [sideNavElements, setSideNavElements] = useState(sideNavElementsTemp)
+
+  const onNavElementChange = (element) =>{ 
+
+    setSideNavElements(sideNavElements.map((item, index) => {
+      if(item.title === element.title){
+          setActiveForm(item.id)
+        return {
+          ...item,
+          isActive: true
+        }
+      }
+      if(index < sideNavElements.indexOf(element)){
+        return {
+          ...item,
+          isActive: true
+        }
+      }
+      return {
+        ...item,
+        isActive: false
+      }
+    }))
+
+  }
 
   const renderBar =(index, isActive)=>{
     if(index >= (sideNavElements.length - 1)){
@@ -55,7 +67,7 @@ function SideNav(props) {
       {
         sideNavElements.map((element, index) => {
           return (
-            <div key={index} className='sideNav-link'>
+            <div key={index} className='sideNav-link' onClick={()=> onNavElementChange(element)}>
             {renderBar(index, element.isActive)}
               <div className='step-indicator' style={{
                 backgroundColor: element.isActive ? '#5AEE95' : '#B7B7B7'

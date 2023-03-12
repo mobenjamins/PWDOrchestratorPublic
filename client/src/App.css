@@ -1,3 +1,21 @@
+@font-face {
+  font-family: 'Inter';
+  src: url('./assets//fonts/Inter/static/Inter-Regular.ttf') format('truetype'),
+       url('./assets/fonts/Inter/static/Inter-Bold.ttf') format('woff'),
+       url('./assets/fonts/Inter/static/Inter-Medium.ttf') format('woff2'),
+        url('./assets/fonts/Inter/static/Inter-SemiBold.ttf') format('woff2'),
+        url('./assets/fonts/Inter/static/Inter-Light.ttf') format('woff2'),
+        url('./assets/fonts/Inter/static/Inter-Thin.ttf') format('woff2'),
+        url('./assets/fonts/Inter/static/Inter-ExtraLight.ttf') format('woff2'),
+        url('./assets/fonts/Inter/static/Inter-ExtraBold.ttf') format('woff2'),
+        url('./assets/fonts/Inter/static/Inter-Black.ttf') format('woff2');
+  font-weight: bolder;
+  font-style: normal;
+}
+
+
+
+
 #root {
   margin: 0px;
   padding: 0px;
@@ -12,7 +30,7 @@
 }
 
 .body-wrapper{
-  background: #F5F5F5;
+  background-color: #F1F5FB;
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -21,5 +39,5 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-right: 50px;
+  margin-right: 35px;
 }
