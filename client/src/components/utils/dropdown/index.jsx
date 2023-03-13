@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import PropTypes from 'prop-types'
 import './style.css'
 
-function DropdownComponent({options, onChange, label}) {
+function DropdownComponent({options, onChange, label, style}) {
   const [selectedValue, setSelectedValue] = useState(options[0].value);
 
   const handleSelectChange = (event) => {
@@ -11,9 +11,9 @@ function DropdownComponent({options, onChange, label}) {
   }
 
   return (
-        <div className='input-section'>
+        <div className='input-section' style={style}>
           <div className='standard-input-label'>{label}</div>
-          <div className='standard-select' >
+          <div className='standard-select' style={style}>
             <select value={selectedValue} className='standard-input-select' onChange={handleSelectChange}>
             {
               options.map((option, index) => {

@@ -3,19 +3,39 @@ import PropTypes from 'prop-types'
 import './style.css'
 import QuestionHeader from '../QuestionSection/header'
 import InfoIcon from '../../assets/info-icon.png'
-import dropDownIcon from '../../assets/dropdown-icon.png'
+import DropdownComponent from '../utils/dropdown'
+import TextInputComponent from '../utils/textInput'
+import RadioselectComponent from '../utils/radioSelect'
 
+const activityLevelOptions = [
+  {
+    title: 'Level 1 - Accomodation and food service activities',
+    isSelected: false
+  },
+  {
+    title: 'Level 2 - Acommod',
+    isSelected: false
+  },
+  {
+    title: 'Level 3 - Accounting, bookkeeping  and auditing activities.  Tax consultancy',
+    isSelected: false
+  },
+  {
+    title: 'Level 4 - Activities of amusement  parks and theme parks',
+    isSelected: false
+  },
+]
 const allRadioOptions = [
   {
-    title: 'Direct payment by the employer',
+    title: 'On the premise of the customer or Recipient of the service?',
     isSelected: false
   },
   {
-    title: 'Reimbursement of costs paid in advance by the worker',
+    title: 'Somewhere else',
     isSelected: false
   },
   {
-    title: 'Payment of a lump sum ',
+    title: 'Payment of a lump sum',
     isSelected: false
   },
   {
@@ -24,9 +44,76 @@ const allRadioOptions = [
   },
 ]
 
+const accomodationExpensesOptions =  [{
+    title: 'Direct payment by the employer',
+    isSelected: false
+  },
+  {
+    title: 'Reimbursement of costs paid in advance by the worker',
+    isSelected: false
+  },
+  {
+    title: 'Payment of a lump sum',
+    isSelected: false
+  },
+  {
+    title: 'Other payment arrangements',
+    isSelected: false
+  },
+]
+
+const foodExpensesOptions =  [{
+    title: 'Direct payment by the employer',
+    isSelected: false
+  },
+  {
+    title: 'Reimbursement of costs paid in advance by the worker',
+    isSelected: false
+  },
+  {
+    title: 'Payment of a lump sum',
+    isSelected: false
+  },
+  {
+    title: 'Other payment arrangements',
+    isSelected: false
+  },
+]
+
+const dummyOptions = [
+  {
+    title: 'Try this out',
+    label: 'Try this out'
+  },
+  {
+    title: 'Wanna test',
+    label: 'Wanna test'
+  },
+  {
+    title: 'Optional figures',
+    label: 'Optional figures'
+  },
+]
+
+const countries = [
+  {value: 'kenya', title:"Kenya"},
+  {value: 'uganda', title:"Uganda"},
+  {value: 'tanzania', title:"Tanzania"},
+  {value: 'rwanda', title:"Rwanda"},
+  {value: 'burundi', title:"Burundi"},
+  {value: 'somalia', title:"Somalia"},
+  {value: 'ethiopia', title:"Ethiopia"},
+  {value: 'sudan', title:"Sudan"},
+  {value: 'south sudan', title:"South Sudan"},
+  {value: 'eritrea', title:"Eritrea"},
+  {value: 'djibouti', title:"Djibouti"}
+]
+
 function HostEntityManager(props) {
   const [radioOptions, setRadioOptions] = useState(allRadioOptions)
   const [selectedValue, setSelectedValue] = useState("");
+  const [foodExpenseOptions, setFoodExpenseOptions] = useState(foodExpensesOptions)
+  const [accomodationExpenseOptions, setAccomodationExpenseOptions] = useState(accomodationExpensesOptions)
 
   const handleSelectChange = (event) => {
     setSelectedValue(event.target.value);
@@ -47,6 +134,36 @@ function HostEntityManager(props) {
     }))
   }
 
+  const accomodationExpenseHandler = (element) => {
+    setAccomodationExpenseOptions(accomodationExpenseOptions.map((item, index) => {
+      if(element.title === item.title){
+        return {
+          ...item,
+          isSelected: true
+        }
+      }
+      return {
+        ...item,
+        isSelected: false
+      }
+    }))
+  }
+
+  const onChangeFoodExpensesHandler = (element) => {
+    setFoodExpenseOptions(foodExpensesOptions.map((item, index) => {
+      if(element.title === item.title){
+        return {
+          ...item,
+          isSelected: true
+        }
+      }
+      return {
+        ...item,
+        isSelected: false
+      }
+    }))
+  }
+
   return (
     <div className='QuestionSection-wrapper'>
       <QuestionHeader
@@ -54,80 +171,209 @@ function HostEntityManager(props) {
         subTitle='Declartion - Mobility of Employee Withing The Same Group - Edition'
        />
 
-       <div className='input-section'>
-          <div className='standard-input-label'>Name</div>
-          <div className='standard-input'>
-            <input className='input-field' placeholder='Enter your name' />
-            <img src={InfoIcon} className="info-icon" />
+       <div className='question-section'>
+          <div className='Subsection-title'>Identity of the host  Company </div>
+          <div style={{
+            display: 'flex',
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            justifyContent: 'space-between',
+            alignItems: 'flex-start',
+          }}>
+            <DropdownComponent onChange={(value)=>console.log("Country ", value)} options={countries} label="Country" />
+            <TextInputComponent onChange={(e)=> console.log(e)} placeholder="Intra-community VAT number" label="Intra-community VAT number" />
+            <TextInputComponent onChange={(e)=> console.log(e)} placeholder="name" label="Corporate name" />
+            <TextInputComponent onChange={(e)=> console.log(e)} placeholder="Address" label="Address" />
+            <TextInputComponent onChange={(e)=> console.log(e)} placeholder="Post code" label="PostCode" />
+            <DropdownComponent onChange={(value)=>console.log("Town / city ", value)} options={countries} label="Town / city" />
+            <TextInputComponent onChange={(e)=> console.log(e)} placeholder="Address line 2" label="Address line 2" />
+            <TextInputComponent onChange={(e)=> console.log(e)} placeholder="your email" label="Email" />
           </div>
        </div>
-
        <div className='question-section'>
-          <div className='Subsection-title'>Identity of the host company</div>
-          <div className='input-section'>
-              <div className='standard-input-label'>Company Autocompletion</div>
-              <div className='standard-input'>
-                <input className='input-field' placeholder='Comapny autocompletion ( via name of the foreign )' />
-                <img src={InfoIcon} className="info-icon" />
-              </div>
+          <div className='Subsection-title'>Representative in host country </div>
+          <div style={{
+            display: 'flex',
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            justifyContent: 'space-between',
+            alignItems: 'flex-start',
+          }}>
+            <TextInputComponent 
+            onChange={(e)=> console.log(e)} 
+            placeholder="Please specify..." 
+            label="Please specify the duties of the company's representative for this service." 
+            style={{  width: '98%'}}
+            />
+            <TextInputComponent onChange={(e)=> console.log(e)} placeholder="2" label="SIRET number" />
+            <TextInputComponent onChange={(e)=> console.log(e)} placeholder="Corporate name" label="Corporate name" />
+            <TextInputComponent onChange={(e)=> console.log(e)} placeholder="Address" label="Address" />
+            <TextInputComponent onChange={(e)=> console.log(e)} placeholder="Post code" label="PostCode" />
+            <DropdownComponent onChange={(value)=>console.log("Town / city ", value)} options={countries} label="Town / city" />
+            <TextInputComponent onChange={(e)=> console.log(e)} placeholder="Address line 2" label="Address line 2" />
           </div>
        </div>
-
        <div className='question-section'>
-          <div className='Subsection-title'>Foreign Company</div>
-          <div className='input-section'>
-              <div className='standard-input-label'>Company Autocompletion</div>
-              <div className='standard-input' style={{width: "500px"}}>
-                <select style={{
-                  // width: '400px',
-                  paddingRight: '50px',
-                  width: '100%',
-                }} value={selectedValue} className='standard-input-select' onChange={handleSelectChange}>
-                  <option value="">-- Select an option --</option>
-                  <option value="option1">Option 1</option>
-                  <option value="option2">Option 2</option>
-                  <option value="option3">Option 3</option>
-                </select>
-                {/* <input className='input-field' placeholder='Comapny autocompletion ( via name of the foreign )' /> */}
-                <img src={dropDownIcon} className="info-icon"/>
-              </div>
+          <div className='Subsection-title'>Means for contacting the representative in the host country </div>
+          <div style={{
+            display: 'flex',
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            justifyContent: 'space-between',
+            alignItems: 'flex-start',
+          }}>
+            <TextInputComponent onChange={(e)=> console.log(e)} placeholder="0712637293" label="Telephone number" />
+            <TextInputComponent onChange={(e)=> console.log(e)} placeholder="Email@email.domain" label="Email" />
           </div>
        </div>
-
-
        <div className='question-section'>
-          <div className='Subsection-title'>Foreign Company</div>
-          {
-            radioOptions.map((item, index) => {
-              return (
-                <div key={index} className='radio-inputs' onClick={()=> onRadioHandler(item)}>
-                      <div className='radiio-question'>
-                        <div className='radio-input' style={{
-                        borderColor: item.isSelected ? '#F48C07' : '#70737A'
-                      }}>
-                          <div className='radio-unput-selected' style={{
-                          display: item.isSelected ? 'flex' : 'none',
-                        }}/>
-                        </div>
-                        <div className='radio-question-title' style={{
-                        color: item.isSelected ? '#212529' : '#70737A'
-                        }}>Direct payment by the employer</div>
-                      </div>
-                    </div>
-              )
-            }
-            )
-          }
-          {/* <div className='radio-inputs'>
-            <div className='radiio-question'>
-              <div className='radio-input'>
-                <div className='radio-unput-selected' />
-              </div>
-              <div className='radio-question-title'>Direct payment by the employer</div>
-            </div>
-          </div> */}
+          <div className='Subsection-title'>Place where the documents, which must be kept available  for the inspection services, are stored</div>
+          <div style={{
+            display: 'flex',
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            justifyContent: 'space-between',
+            alignItems: 'flex-start',
+          }}>
+            <TextInputComponent 
+            onChange={(e)=> console.log(e)} 
+            placeholder="At the place where the  services is performed" 
+            label="Location of documents "
+            style={{  width: '98%'}} />
+          </div>
        </div>
-      
+       <div className='question-section'>
+          <div className='Subsection-title'>Dates and place of service</div>
+          <div style={{
+            display: 'flex',
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            justifyContent: 'space-between',
+            alignItems: 'flex-start',
+          }}>
+            <TextInputComponent 
+              onChange={(e)=> console.log(e)} 
+              placeholder="04 Feb 2023" 
+              label="Service start date " 
+            />
+            <TextInputComponent 
+              onChange={(e)=> console.log(e)} 
+              placeholder="01 Feb 2023" 
+              label="Estimated end date" 
+            />
+            <TextInputComponent 
+              onChange={(e)=> console.log(e)} 
+              placeholder="2" 
+              label="SIREN number" 
+            />
+            <TextInputComponent 
+              onChange={(e)=> console.log(e)} 
+              placeholder="2" 
+              label="SIRET number" 
+            />
+            <TextInputComponent 
+              onChange={(e)=> console.log(e)} 
+              placeholder="Hosting company 1" 
+              label="Corporate name" 
+            />
+            <TextInputComponent 
+              onChange={(e)=> console.log(e)} 
+              placeholder="Address line 1" 
+              label="Address" 
+            />
+            <TextInputComponent 
+              onChange={(e)=> console.log(e)} 
+              placeholder="6400" 
+              label="Postcode" 
+            />
+            <DropdownComponent
+              onChange={(value)=>console.log("Town / city ", value)}
+              options={countries}
+              label="Town / city"
+            />
+            <TextInputComponent 
+              onChange={(e)=> console.log(e)} 
+              placeholder="Address line 2" 
+              label="Address line 2" 
+            />
+            <TextInputComponent 
+              onChange={(e)=> console.log(e)} 
+              placeholder="4576456743576" 
+              label="NAF code" 
+            />
+            <TextInputComponent 
+              onChange={(e)=> console.log(e)} 
+              placeholder="False" 
+              label="Collective accommodation" 
+            />
+            <TextInputComponent 
+              onChange={(e)=> console.log(e)} 
+              placeholder="Address" 
+              label="Address type" 
+            />
+            <TextInputComponent 
+              onChange={(e)=> console.log(e)} 
+              placeholder="23646" 
+              label="Postcode" 
+            />
+            <DropdownComponent onChange={(e)=>console.log(e)} options={countries} label="Town / City" />
+            <TextInputComponent 
+              onChange={(e)=> console.log(e)} 
+              placeholder="Address line 2" 
+              label="Address line 2" 
+            />
+          </div>
+       </div>
+       <div className='question-section'>
+          <div className='Subsection-title'>Information about the service </div>
+          <div style={{
+            display: 'flex',
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            justifyContent: 'space-between',
+            alignItems: 'flex-start',
+          }}>
+            <DropdownComponent 
+              onChange={(e)=>console.log(e)} 
+              options={activityLevelOptions} 
+              label="Main activity (4 level) " 
+              style={{  width: '100%'}}
+              />
+            <TextInputComponent 
+              onChange={(e)=> console.log(e)} 
+              placeholder=" true / false" 
+              label="Use of hazardous process or equipment "
+              style={{  width: '98%'}} 
+            />
+            <TextInputComponent 
+              onChange={(e)=> console.log(e)} 
+              placeholder=" reason" 
+              label="If yes, please specify"
+              style={{  width: '98%'}} 
+            />
+            <TextInputComponent 
+              onChange={(e)=> console.log(e)} 
+              placeholder=" 09:00:00" 
+              label="Work start time"
+            />
+            <TextInputComponent 
+              onChange={(e)=> console.log(e)} 
+              placeholder=" 09:00:00" 
+              label="Work end time"
+            />
+            <TextInputComponent 
+              onChange={(e)=> console.log(e)} 
+              placeholder="2" 
+              label="Number of rest days per week"
+            />
+            <TextInputComponent 
+              onChange={(e)=> console.log(e)} 
+              placeholder="True / false" 
+              label="Other types of working hour arrangemnets"
+            />
+
+          </div>
+       </div>      
     </div>
   )
 }
