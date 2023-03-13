@@ -3,49 +3,24 @@ import PropTypes from 'prop-types'
 import './style.css'
 import QuestionHeader from '../QuestionSection/header'
 import InfoIcon from '../../assets/info-icon.png'
-import dropDownIcon from '../../assets/dropdown-icon.png'
+import DropdownComponent from '../utils/dropdown'
+import TextInputComponent from '../utils/textInput'
+import RadioselectComponent from '../utils/radioSelect'
 
-const allRadioOptions = [
-  {
-    title: 'Direct payment by the employer',
-    isSelected: false
-  },
-  {
-    title: 'Reimbursement of costs paid in advance by the worker',
-    isSelected: false
-  },
-  {
-    title: 'Payment of a lump sum ',
-    isSelected: false
-  },
-  {
-    title: 'Other payment arrangements',
-    isSelected: false
-  },
+const countries = [
+  {value: 'kenya', title:"Kenya"},
+  {value: 'uganda', title:"Uganda"},
+  {value: 'tanzania', title:"Tanzania"},
+  {value: 'rwanda', title:"Rwanda"},
+  {value: 'burundi', title:"Burundi"},
+  {value: 'somalia', title:"Somalia"},
+  {value: 'ethiopia', title:"Ethiopia"},
+  {value: 'sudan', title:"Sudan"},
+  {value: 'south sudan', title:"South Sudan"},
+  {value: 'eritrea', title:"Eritrea"},
+  {value: 'djibouti', title:"Djibouti"}
 ]
-
 function EmployeeForm(props) {
-  const [radioOptions, setRadioOptions] = useState(allRadioOptions)
-  const [selectedValue, setSelectedValue] = useState("");
-
-  const handleSelectChange = (event) => {
-    setSelectedValue(event.target.value);
-  }
-
-  const onRadioHandler = (element) => {
-    setRadioOptions(radioOptions.map((item, index) => {
-      if(element.title === item.title){
-        return {
-          ...item,
-          isSelected: true
-        }
-      }
-      return {
-        ...item,
-        isSelected: false
-      }
-    }))
-  }
 
   return (
     <div className='QuestionSection-wrapper'>
@@ -53,81 +28,40 @@ function EmployeeForm(props) {
         title='Employee Information'
         subTitle='Declartion - Mobility of Employee Withing The Same Group - Edition'
        />
-
-       <div className='input-section'>
-          <div className='standard-input-label'>Name</div>
-          <div className='standard-input'>
-            <input className='input-field' placeholder='Enter your name' />
-            <img src={InfoIcon} className="info-icon" />
-          </div>
-       </div>
-
        <div className='question-section'>
           <div className='Subsection-title'>Personal Information </div>
-          <div className='input-section'>
-              <div className='standard-input-label'>Company Autocompletion</div>
-              <div className='standard-input'>
-                <input className='input-field' placeholder='Comapny autocompletion ( via name of the foreign )' />
-                <img src={InfoIcon} className="info-icon" />
-              </div>
+          <div style={{
+            display: 'flex',
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            justifyContent: 'space-between',
+            alignItems: 'flex-start',
+          }}>
+            <TextInputComponent onChange={(e)=> console.log(e)} placeholder="Gender" label="gender" />
+            <TextInputComponent onChange={(e)=> console.log(e)} placeholder="Doe" label="Last name" />
+            <TextInputComponent onChange={(e)=> console.log(e)} placeholder="John" label="John" />
+            <TextInputComponent onChange={(e)=> console.log(e)} placeholder="Date of birth" label="13 Jun 1990" />
+            <DropdownComponent onChange={(value)=>console.log("Town / city ", value)} options={countries} label="Town / city" />
+            <DropdownComponent onChange={(value)=>console.log("Country ", value)} options={countries} label="Country of birth" />
+            <TextInputComponent onChange={(e)=> console.log(e)} placeholder="Italy" label="Nationality" />
           </div>
        </div>
-
        <div className='question-section'>
-          <div className='Subsection-title'>Foreign Company</div>
-          <div className='input-section'>
-              <div className='standard-input-label'>Company Autocompletion</div>
-              <div className='standard-input' style={{width: "500px"}}>
-                <select style={{
-                  // width: '400px',
-                  paddingRight: '50px',
-                  width: '100%',
-                }} value={selectedValue} className='standard-input-select' onChange={handleSelectChange}>
-                  <option value="">-- Select an option --</option>
-                  <option value="option1">Option 1</option>
-                  <option value="option2">Option 2</option>
-                  <option value="option3">Option 3</option>
-                </select>
-                {/* <input className='input-field' placeholder='Comapny autocompletion ( via name of the foreign )' /> */}
-                <img src={dropDownIcon} className="info-icon"/>
-              </div>
+          <div className='Subsection-title'>Address</div>
+          <div style={{
+            display: 'flex',
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            justifyContent: 'space-between',
+            alignItems: 'flex-start',
+          }}>
+            <TextInputComponent onChange={(e)=> console.log(e)} placeholder="Address" label="Address" />
+            <DropdownComponent onChange={(value)=>console.log("Country ", value)} options={countries} label="Country" />
+            <TextInputComponent onChange={(e)=> console.log(e)} placeholder="Post code" label="PostCode" />
+            <DropdownComponent onChange={(value)=>console.log("Town / city ", value)} options={countries} label="Town / city" />
+            <TextInputComponent onChange={(e)=> console.log(e)} placeholder="Address line 2" label="Address line 2" />
           </div>
        </div>
-
-
-       <div className='question-section'>
-          <div className='Subsection-title'>Foreign Company</div>
-          {
-            radioOptions.map((item, index) => {
-              return (
-                <div key={index} className='radio-inputs' onClick={()=> onRadioHandler(item)}>
-                      <div className='radiio-question'>
-                        <div className='radio-input' style={{
-                        borderColor: item.isSelected ? '#F48C07' : '#70737A'
-                      }}>
-                          <div className='radio-unput-selected' style={{
-                          display: item.isSelected ? 'flex' : 'none',
-                        }}/>
-                        </div>
-                        <div className='radio-question-title' style={{
-                        color: item.isSelected ? '#212529' : '#70737A'
-                        }}>Direct payment by the employer</div>
-                      </div>
-                    </div>
-              )
-            }
-            )
-          }
-          {/* <div className='radio-inputs'>
-            <div className='radiio-question'>
-              <div className='radio-input'>
-                <div className='radio-unput-selected' />
-              </div>
-              <div className='radio-question-title'>Direct payment by the employer</div>
-            </div>
-          </div> */}
-       </div>
-      
     </div>
   )
 }
