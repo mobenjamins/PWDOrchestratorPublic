@@ -170,14 +170,30 @@ function HomeEntityManager(props) {
             justifyContent: 'space-between',
             alignItems: 'flex-start',
           }}>
-            <TextInputComponent onChange={(e)=> console.log(e)} placeholder="Company name" label="Corporate name" />
+            <TextInputComponent 
+              onChange={(e)=> console.log(e)} 
+              placeholder="Company name" 
+              label="Corporate name" 
+              infoPopup={{
+                explanation:"Free designation of your declaration / Certificate to help you find it easily in your dashboard",
+                videoUrl: "https://www.youtube.com/watch?v=9bZkp7q19f0"
+              }}
+            />
             <TextInputComponent onChange={(e)=> console.log(e)} placeholder="Address" label="Address" />
             <DropdownComponent onChange={(value)=>console.log("Country ", value)} options={countries} label="Country of birth" />
             <TextInputComponent onChange={(e)=> console.log(e)} placeholder="Post code" label="PostCode" />
             <DropdownComponent onChange={(value)=>console.log("Town / city ", value)} options={countries} label="Town / city" />
             <TextInputComponent onChange={(e)=> console.log(e)} placeholder="Address line 2" label="Address line 2" />
             <TextInputComponent onChange={(e)=> console.log(e)} placeholder="phone number" label="Telephone number" />
-            <TextInputComponent onChange={(e)=> console.log(e)} placeholder="your email" label="Email" />
+            <TextInputComponent 
+              onChange={(e)=> console.log(e)} 
+              placeholder="your email" 
+              label="Email" 
+              infoPopup={{
+                  explanation:"Free designation of your declaration / Certificate to help you find it easily in your dashboard",
+                  videoUrl: "https://www.youtube.com/watch?v=9bZkp7q19f0"
+              }}
+            />
           </div>
        </div>
        <div className='question-section'>
