@@ -5,7 +5,7 @@ import QuestionHeader from '../QuestionSection/header'
 import InfoIcon from '../../assets/info-icon.png'
 import DropdownComponent from '../utils/dropdown'
 import TextInputComponent from '../utils/textInput'
-import RadioselectComponent from '../utils/radioSelect'
+import RadioselectComponent from '../utils/radioselect'
 import {countries} from './helpers'
 
 function EmployeeForm({step}) {

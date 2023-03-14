@@ -41,7 +41,7 @@ function HostEntityManager({step}) {
           [inputKey]: siret,
           siren: response.data.etablissement.siren,
           corporateName: response.data.etablissement.uniteLegale.denominationUniteLegale,
-          address: response.data.etablissement.adresseEtablissement.complementAdresseEtablissement,
+          addressline2: response.data.etablissement.adresseEtablissement.complementAdresseEtablissement,
           postCode: response.data.etablissement.adresseEtablissement.codePostalEtablissement,
           address: `${locationData.numeroVoieEtablissement} ${locationData.libelleVoieEtablissement} ${locationData.codePostalEtablissement} ${locationData.libelleCommuneEtablissement}`
         }
