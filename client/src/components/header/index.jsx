@@ -11,11 +11,12 @@ function Header(props) {
         <div className='brand-name'>Posting of Workers in France</div>
       </div>
       <div className='nav-list'>
-        <div  className='navList-item navList-item-active'>Test</div>
+        {/* <div  className='navList-item navList-item-active'>Test</div> */}
         <div className='navList-item'>Home</div>
         <div className='navList-item'>FAQ</div>
         <div className='navList-item'>CONTACT</div>
         <div className='navList-item'>My Account</div>
+        <div className='navList-item navList-item-active'>Admin</div>
         <div className='logout-btn'>
           <p>Logout</p>
         </div>

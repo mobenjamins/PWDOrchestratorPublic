@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import './style.css'
 import BackIcon from '../../assets/back-icon.png'
@@ -7,14 +7,18 @@ import EmployeeForm from '../Forms/employee'
 import HomeEntityManager from '../Forms/homeEntityManager'
 import HostEntityManager from '../Forms/hostEntityManager'
 
-const formsList = [
-  "employee",
-  "hostEntity",
-  "homeEntity",
-]
+const formSteps = {
+  employee: 2,
+  hostEntity: 6,
+  homeEntity: 9,
+}
 
 function MainSection({activeForm}) {
-  const [step, setStep] = React.useState(0)
+  const [step, setStep] = React.useState(1)
+
+  useEffect(() => {
+    setStep(1)
+  }, [activeForm])
 
   const nextStepHandler = () => {
     console.log("nextStepHandler")
@@ -28,7 +32,7 @@ function MainSection({activeForm}) {
     if(activeForm === 'employee'){
       console.log("rendering EmployeeForm")
       return (
-        <EmployeeForm />
+        <EmployeeForm step={step} />
       )
     } else if(activeForm === 'hostEntity') {
       console.log("rendering hostEntity")
@@ -43,7 +47,7 @@ function MainSection({activeForm}) {
     } else {
       console.log("rendering default")
       return (
-      <HomeEntityManager />
+      <HomeEntityManager step={step} />
       )
     }
   }
@@ -53,10 +57,10 @@ function MainSection({activeForm}) {
       questionRouter()
     }
       <div className='nav-section'>
-        <div className='back-btn' onClick={()=> backStepHandler()} style={{display: step === 0 ? 'none' : 'flex'}}>
+        <div className='back-btn' onClick={()=> backStepHandler()} style={{display: step === 1 ? 'none' : 'flex'}}>
           <img src={BackIcon} className="back-icon" />
         </div>
-        <div className='next-btn' onClick={()=>nextStepHandler()} style={{display: step === 4 ? 'none' : 'flex'}}>
+        <div className='next-btn' onClick={()=>nextStepHandler()} style={{display: step === formSteps[activeForm] ? 'none' : 'flex'}}>
           <div>Next</div>
         </div>
       </div>
@@ -64,6 +68,8 @@ function MainSection({activeForm}) {
   )
 }
 
-MainSection.propTypes = {}
+MainSection.propTypes = {
+  activeForm: PropTypes.string.isRequired
+}
 
 export default MainSection
