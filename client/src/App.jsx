@@ -1,7 +1,7 @@
 import React,{useEffect, useState} from 'react'
 import './App.css'
 import Header from './components/header'
-import SideNav from './components/sideNav'
+import SideNav from './components/sidenav'
 import MainSection from './components/main'
 import Footer from './components/footer'
 
