@@ -12,7 +12,17 @@ const formsList = [
   "hostEntity",
   "homeEntity",
 ]
+
 function MainSection({activeForm}) {
+  const [step, setStep] = React.useState(0)
+
+  const nextStepHandler = () => {
+    console.log("nextStepHandler")
+    setStep(step + 1)
+  }
+  const backStepHandler = () => {
+    setStep(step - 1)
+  }
 
   const questionRouter = (question) => {
     if(activeForm === 'employee'){
@@ -23,12 +33,12 @@ function MainSection({activeForm}) {
     } else if(activeForm === 'hostEntity') {
       console.log("rendering hostEntity")
       return (
-      <HostEntityManager />
+      <HostEntityManager step={step} />
       )
     } else if(activeForm === 'homeEntity') {
       console.log("rendering homeEntity")
       return (
-      <HomeEntityManager />
+      <HomeEntityManager step={step} />
       )
     } else {
       console.log("rendering default")
@@ -43,10 +53,10 @@ function MainSection({activeForm}) {
       questionRouter()
     }
       <div className='nav-section'>
-        <div className='back-btn'>
+        <div className='back-btn' onClick={()=> backStepHandler()} style={{display: step === 0 ? 'none' : 'flex'}}>
           <img src={BackIcon} className="back-icon" />
         </div>
-        <div className='next-btn'>
+        <div className='next-btn' onClick={()=>nextStepHandler()} style={{display: step === 4 ? 'none' : 'flex'}}>
           <div>Next</div>
         </div>
       </div>
