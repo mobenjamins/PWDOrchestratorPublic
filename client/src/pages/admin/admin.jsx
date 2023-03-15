@@ -6,7 +6,7 @@ function Admin() {
 
   return (
     <>
-      <div className='wrapper'>
+      <div className='body-wrapper'>
         <div className='side-section'>
 
         </div>
