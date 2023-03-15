@@ -1,14 +1,12 @@
 .mainSection-wrapper{
   background: #FFFFFF;
   margin-top: 25px;
-  margin-right: 50px;
   margin-left: 20px;
   border-radius: 10px;
   height: 100%;
   display: flex;
   flex-direction: column;
   padding: 50px;
-  padding-right: 50px;
 }
 
 .nav-section{
