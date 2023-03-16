@@ -3,11 +3,13 @@ import PropTypes from 'prop-types'
 import './style.css'
 
 function DropdownComponent({options, onChange, label, style}) {
-  const [selectedValue, setSelectedValue] = useState(options[0].value);
+  const [selectedValue, setSelectedValue] = useState(options[0]?.value);
 
   const handleSelectChange = (event) => {
     setSelectedValue(event.target.value);
-    onChange(event.target.value);
+    const selected = options.find(option => option.value === event.target.value);
+    onChange(selected);
+
   }
 
   return (
