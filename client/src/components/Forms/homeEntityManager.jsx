@@ -80,7 +80,7 @@ function HomeEntityManager({step}) {
           label="Corporate name" 
           infoPopup={{
             explanation:"Free designation of your declaration / Certificate to help you find it easily in your dashboard",
-            videoUrl: "https://www.youtube.com/watch?v=9bZkp7q19f0"
+            videoUrl: "https://www.youtube.com/embed/4NKanx3JEP4?controls=0&modestbranding=1&showinfo=0&iv_load_policy=3"
           }}
         />
         <TextInputComponent onChange={(e)=> console.log(e)} placeholder="Address" label="Address" />
@@ -94,8 +94,8 @@ function HomeEntityManager({step}) {
           placeholder="your email" 
           label="Email" 
           infoPopup={{
-              explanation:"Free designation of your declaration / Certificate to help you find it easily in your dashboard",
-              videoUrl: "https://www.youtube.com/watch?v=9bZkp7q19f0"
+            explanation:"Free designation of your declaration / Certificate to help you find it easily in your dashboard",
+            videoUrl: "https://www.youtube.com/embed/4NKanx3JEP4?controls=0&modestbranding=1&showinfo=0&iv_load_policy=3"
           }}
         />
       </div>

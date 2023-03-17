@@ -1,12 +1,17 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
+import {useSelector, useDispatch} from 'react-redux'
 import PropTypes from 'prop-types'
 import './style.css'
 import InfoIcon from '../../../assets/info-icon.png'
 import playIcon from '../../../assets/play-icon.png'
+import {setShowVideoModal} from '../../../redux/globals.slice'
 
 function TextInputComponent({onChange, label, placeholder, defaultValue, style, infoPopup, errorText, disabled}) {
+  const dispatch = useDispatch()
   const [value, setValue] = useState(defaultValue);
   const [showInfoPopUp, setShowInfoPopUp] = useState(false);
+
+  const {showVideoModal} = useSelector(state => state.globals)
 
   const handleSelectChange = (event) => {
     setValue(event.target.value);
@@ -15,6 +20,10 @@ function TextInputComponent({onChange, label, placeholder, defaultValue, style, 
 
   const onInfoPopupHandler = () => {
     setShowInfoPopUp(!showInfoPopUp)
+  }
+
+  const onPlayVideoHandler = () => {
+    dispatch(setShowVideoModal({value: true, videoUrl: infoPopup.videoUrl}))
   }
 
   return (
@@ -31,7 +40,10 @@ function TextInputComponent({onChange, label, placeholder, defaultValue, style, 
                     {infoPopup.explanation}
                     </div>
                     <div className='Video-wrapper'>
-                      <img src={playIcon} className='Play-icon' />
+                      <iframe width="100%" height="100%" src={infoPopup.videoUrl} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                      <div className='video-overlay' onClick={()=> onPlayVideoHandler()}>
+                        <img src={playIcon} className='Play-icon' />
+                      </div>
                     </div>
                   </div>
                 )
