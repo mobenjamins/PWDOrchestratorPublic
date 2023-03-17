@@ -12,6 +12,7 @@ function EmployeeForm({step}) {
 
   const personalInformation = () => {
     return (
+      <>
       <div className='question-section'>
       <div className='Subsection-title'>Personal Information </div>
       <div style={{
@@ -30,6 +31,10 @@ function EmployeeForm({step}) {
         <TextInputComponent onChange={(e)=> console.log(e)} placeholder="Italy" label="Nationality" />
       </div>
    </div>
+   {
+    addressInformation()
+   }
+   </>
     )
   }
 
@@ -55,11 +60,7 @@ function EmployeeForm({step}) {
   }
 
   const StepRenderer = () => {
-    if(step === 1){
       return personalInformation()
-    } else if(step === 2){
-      return  addressInformation()
-    }
   }
 
   return (

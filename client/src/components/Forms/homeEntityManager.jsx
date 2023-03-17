@@ -344,16 +344,14 @@ function HomeEntityManager({step}) {
     } else if(step === 3){
       return directorsInformation()
     } else if (step === 4){
-      return financialGuarantee()
-    } else if (step === 5){
       return typeOfPosting()
-    } else if (step === 6){
+    } else if (step === 5){
       return serviceSites()
-    } else if (step === 7){
+    } else if (step === 6){
       return travelExpenses()
-    } else if (step === 8){
+    } else if (step === 7){
       return livingFoodExpenses()
-    } else if (step === 9){
+    } else if (step === 8){
       return accomodationExpenses()
     }
   }

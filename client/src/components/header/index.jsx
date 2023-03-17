@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import logoImage from '../../assets/logo.png'
+import logoImage from '../../assets/cozm-logo.png'
 import './style.css'
 
 function Header(props) {

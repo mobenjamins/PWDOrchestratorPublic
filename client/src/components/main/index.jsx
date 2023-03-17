@@ -7,9 +7,9 @@ import HomeEntityManager from '../Forms/homeEntityManager'
 import HostEntityManager from '../Forms/hostEntityManager'
 
 const formSteps = {
-  employee: 2,
-  hostEntity: 6,
-  homeEntity: 9,
+  employee: 1,
+  hostEntity: 5,
+  homeEntity: 8,
 }
 
 function MainSection({activeForm}) {

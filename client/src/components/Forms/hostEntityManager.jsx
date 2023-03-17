@@ -209,6 +209,7 @@ function HostEntityManager({step}) {
 
   const hostRepresentative = () => {
     return (
+      <>
       <div className='question-section'>
       <div className='Subsection-title'>Representative in host country </div>
       <div style={{
@@ -268,6 +269,10 @@ function HostEntityManager({step}) {
         />
       </div>
    </div>
+   {
+    contactMeans()
+   }
+   </>
     )
   }
 
@@ -474,13 +479,11 @@ const StepRenderer = () => {
     return hostIdentity()
   } else if(step === 2){
     return  hostRepresentative()
-  } else if(step === 3){
-    return contactMeans()
-  } else if (step === 4){
+  } else if (step === 3){
     return documentStorage()
-  } else if (step === 5){
+  } else if (step === 4){
     return datesAndService()
-  } else if (step === 6){
+  } else if (step === 5){
     return serviceInformation()
   }
 }
