@@ -1,67 +1,94 @@
-import React,{useEffect, useState} from 'react'
-import '../App.css'
-import SideNav from '../components/sidenav'
-import MainSection from '../components/main'
-import Footer from '../components/footer'
+import React, { useEffect, useState } from 'react';
+import '../App.css';
+import SideNav from '../components/sidenav';
+import MainSection from '../components/main';
+import Footer from '../components/footer';
 
 const sideNavElementsTemp = [
-  {
-    id: 'homeEntity',
-    title: 'Home Entity Manager',
-    isActive: true
-  },
-  {
-    id: 'hostEntity',
-    title: 'Host Entity Manager',
-    isActive: false
-  },
-  {
-    id: 'employee',
-    title: 'Employee',
-    isActive: false
-  }
-]
+   {
+      id: 'homeEntity',
+      title: 'Home Entity Manager',
+      isActive: true,
+      subSections: [
+         'Home Entity Information',
+         'Registration and Legal form',
+         'Directors information',
+         'Type of posting',
+         'Service information',
+         'Travel Expenses',
+         'Living Expenses',
+         'Accommodation Expenses'
+      ]
+   },
+   {
+      id: 'hostEntity',
+      title: 'Host Entity Manager',
+      isActive: false,
+      subSections: ['Host Entity Information', 'Representative information', 'Place of document storage', 'Dates and place', 'Service information']
+   },
+   {
+      id: 'employee',
+      title: 'Employee',
+      isActive: false,
+      subSections: ['Personal Information']
+   }
+];
 
 function Home() {
-const [activeForm, setActiveForm] = useState('homeEntity')
+   const [activeForm, setActiveForm] = useState(sideNavElementsTemp[0]);
 
-const [sideNavElements, setSideNavElements] = useState(sideNavElementsTemp)
+   const [sideNavElements, setSideNavElements] = useState(sideNavElementsTemp);
 
-const onNavElementChange = (element) =>{ 
+   const [step, setStep] = React.useState(1);
 
-  setSideNavElements(sideNavElements.map((item, index) => {
-    if(item.title === element.title){
-        setActiveForm(item.id)
-      return {
-        ...item,
-        isActive: true
-      }
-    }
-    if(index < sideNavElements.indexOf(element)){
-      return {
-        ...item,
-        isActive: true
-      }
-    }
-    return {
-      ...item,
-      isActive: false
-    }
-  }))
+   useEffect(() => {
+      setStep(1);
+   }, [activeForm]);
 
+   const onNavElementChange = (element) => {
+      setSideNavElements(
+         sideNavElements.map((item, index) => {
+            if (item.title === element.title) {
+               setActiveForm(item);
+               return {
+                  ...item,
+                  isActive: true
+               };
+            }
+            if (index < sideNavElements.indexOf(element)) {
+               return {
+                  ...item,
+                  isActive: false
+               };
+            }
+            return {
+               ...item,
+               isActive: false
+            };
+         })
+      );
+   };
+
+   const onSubSectionNav = (element, index) => {
+      setStep(index + 1);
+   };
+
+   return (
+      <>
+         <div className="body-wrapper">
+            <SideNav
+               onNavElementChange={onNavElementChange}
+               sideNavElements={sideNavElements}
+               onSubSectionNav={onSubSectionNav}
+               step={step}
+            />
+            <div className="right-section">
+               <MainSection step={step} setStep={setStep} activeForm={activeForm} />
+               <Footer />
+            </div>
+         </div>
+      </>
+   );
 }
 
-  return (
-    <>
-      <div className='body-wrapper'>
-        <SideNav setActiveForm={setActiveForm} onNavElementChange={onNavElementChange} sideNavElementsTemp={sideNavElements} />
-        <div className='right-section'>
-          <MainSection activeForm={activeForm} />
-          <Footer />
-        </div>
-      </div>
-    </>
-  )
-}
-
-export default Home
+export default Home;
