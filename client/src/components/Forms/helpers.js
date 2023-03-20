@@ -87,3 +87,22 @@ export const foodExpensesOptions = [
       isSelected: false
    }
 ];
+
+export const dutiesOfRepresentative = [
+   {
+      title: "The company's director located in France throughout the service",
+      isSelected: false
+   },
+   {
+      title: 'one of the employees located on-site throughout the service',
+      isSelected: false
+   },
+   {
+      title: 'The french customer or service recipient',
+      isSelected: false
+   },
+   {
+      title: 'A professional mandated for that purpose, located in France and capable of performing this mission',
+      isSelected: false
+   }
+];

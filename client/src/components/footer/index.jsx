@@ -7,13 +7,13 @@ import './style.css';
 function Footer(props) {
    return (
       <div className="footer-wrapper">
-         <div className="left-section">
+         {/* <div className="left-section">
             <div className="footer-brand-name">Legal notices / Personal data | Accessibility: partially compliant</div>
          </div>
          <div className="nav-list">
             <img src={financeLogo} className="footer-brand-logo" />
             <img src={frenchLogo} className="footer-brand-logo" />
-         </div>
+         </div> */}
       </div>
    );
 }

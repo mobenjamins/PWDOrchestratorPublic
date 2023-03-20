@@ -66,7 +66,7 @@ function Admin() {
       setAssignMents((prevState) => {
          return [...prevState, formData];
       });
-      setFormData({});
+      // setFormData({});
    };
 
    const homeIdentity = () => {
@@ -144,6 +144,9 @@ function Admin() {
    };
 
    const renderTable = () => {
+      if (!assignements.length) {
+         return;
+      }
       return assignements.map((assignment, index) => {
          return (
             <tr>
@@ -155,9 +158,7 @@ function Admin() {
                <td>{assignment.automatedReminder2}</td>
                <td>{assignment.manualReminder}</td>
                <td>{assignment.escalationPoint}</td>
-               <td className="edit-icon" style={{ color: 'red', fontSize: '18px' }}>
-                  X
-               </td>
+               {/* <td style={{ color: 'red', fontSize: '18px' }}>X</td> */}
                <td>
                   <svg className="edit-icon" width="25" height="31" viewBox="0 0 16 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                      <path

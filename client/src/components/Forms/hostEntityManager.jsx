@@ -5,9 +5,10 @@ import './style.css';
 import QuestionHeader from '../QuestionSection/header';
 import DropdownComponent from '../utils/dropdown';
 import TextInputComponent from '../utils/textInput';
+import RadioselectComponent from '../utils/radioselect';
 import { sirenAPI } from '../../axios/api';
 import { updateHostEntityForm } from '../../redux/forms/forms.slice';
-import { activityLevelOptions, countries } from './helpers';
+import { activityLevelOptions, countries, accomodationExpensesOptions, dutiesOfRepresentative } from './helpers';
 
 function HostEntityManager({ step }) {
    const dispatch = useDispatch();
@@ -29,6 +30,24 @@ function HostEntityManager({ step }) {
    });
    const { hostEntityForm } = useSelector((state) => state.forms);
    const [hostForm, setHostEntityForm] = useState(hostEntityForm);
+   const [representativeOptions, setRepresentativeOptions] = useState(dutiesOfRepresentative);
+
+   const onChangeRepsentativeHandler = (element) => {
+      setRepresentativeOptions(
+         dutiesOfRepresentative.map((item, index) => {
+            if (element.title === item.title) {
+               return {
+                  ...item,
+                  isSelected: true
+               };
+            }
+            return {
+               ...item,
+               isSelected: false
+            };
+         })
+      );
+   };
 
    const onChangeSiretHandler = async (siret, section, inputKey) => {
       try {
@@ -207,6 +226,35 @@ function HostEntityManager({ step }) {
       );
    };
 
+   const representativeSelect = () => {
+      return (
+         <div className="question-section">
+            {/* <div className="Subsection-title">Travel expenses </div> */}
+            <div
+               style={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  flexWrap: 'wrap',
+                  justifyContent: 'space-between',
+                  alignItems: 'flex-start',
+                  width: '100%',
+                  marginBottom: '20px'
+               }}
+            >
+               <div className="question-section">
+                  <div className="standard-input-label" style={{ marginTop: '20px' }}>
+                     Please specify the duties of the company's representative for this service.
+                  </div>
+                  {representativeOptions.map((item, index) => {
+                     return <RadioselectComponent item={item} onChange={onChangeRepsentativeHandler} />;
+                  })}
+               </div>
+               {/* <TextInputComponent onChange={(e) => console.log(e)} placeholder="Travel Expenses Budget" label="Travel Expenses Budget" /> */}
+            </div>
+         </div>
+      );
+   };
+
    const hostRepresentative = () => {
       return (
          <>
@@ -221,7 +269,8 @@ function HostEntityManager({ step }) {
                      alignItems: 'flex-start'
                   }}
                >
-                  <TextInputComponent
+                  {representativeSelect()}
+                  {/* <TextInputComponent
                      onChange={(value) => onInPutHandler(value, 'representativeInHostCountry', 'dutiesOFrepresentative')}
                      placeholder="Please specify..."
                      label="Please specify the duties of the company's representative for this service."
@@ -231,7 +280,7 @@ function HostEntityManager({ step }) {
                         explanation: 'Free designation of your declaration / Certificate to help you find it easily in your dashboard',
                         videoUrl: 'https://www.youtube.com/watch?v=9bZkp7q19f0'
                      }}
-                  />
+                  /> */}
                   <TextInputComponent
                      onChange={(value) => onInPutHandler(value, 'representativeInHostCountry', 'siret')}
                      placeholder="78013017514688"
