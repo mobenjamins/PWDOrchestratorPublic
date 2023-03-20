@@ -3,16 +3,68 @@ export const sectionsList = [
     title: 'Home Entity Manager',
     id: 'homeEntity',
     value: 'Home Entity Manager',
+    subsectionsList:[
+      {
+        title: 'Identity of the home company',
+        id: 'homeEntityIdentity',
+        value: 'Identity of the home company',
+      },
+      {
+        title: 'Registration  form of the home entity',
+        value: 'Registration  form of the home entity',
+        id: 'homeEntityRegistration',
+      },
+      {
+        title: 'Director of the home entity',
+        value: 'Director of the home entity',
+        id: 'homeEntityDirector',
+      },
+    ]
   },
   {
     title: 'Host Entity Manager',
     id: 'hostEntity',
     value: 'Host Entity Manager',
+    subsectionsList:[
+      {
+        title: 'Identity of the host Company',
+        value: 'Identity of the host Company',
+        id: 'hostEntityIdentity',
+      },
+      {
+        title: 'Registration form of the host entity',
+        value: 'Registration form of the host entity',
+        id: 'hostEntityRegistration',
+      },
+      {
+        title: 'Representative of the host entity',
+        value: 'Representative of the host entity',
+        id: 'hostEntityRepresentative',
+      },
+      {
+        title: 'Means for contacting the representative in the host country',
+        value: 'Means for contacting the representative in the host country',
+        id: 'hostEntityMeans',
+      },
+    ]
+
   },
   {
-    title: 'Employee',
+    title: 'Employee sjfhhhjbfsjhbhbsf  fsh jsfjh',
     id: 'employee',
-    value: 'Employee',
+    value: 'Employee in the susdhjbjvhs uvbfshvbshjf',
+    subsectionsList:[
+      {
+        title: 'Personal Information',
+        value: 'Personal Information',
+        id: 'employeePersonal',
+      },
+      {
+        title: 'Address',
+        value: 'Address',
+        id: 'employeeAddress'
+      }
+    ]
   },
 ]
 

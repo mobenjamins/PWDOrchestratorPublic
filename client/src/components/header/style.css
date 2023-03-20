@@ -1,6 +1,6 @@
 .header-wrapper{
     background-color: #212121;
-    padding: 20px;
+    padding: 10px;
     padding-right: 35px;
     display: flex;
     flex-direction: row;
@@ -20,7 +20,7 @@
 .logo-image{
     margin-left: 50px;
     width: 110.93px;
-    height: 50.7px;
+    height: 70.7px;
 }
 
 .brand-name{
