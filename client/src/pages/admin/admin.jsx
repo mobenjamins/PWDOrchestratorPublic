@@ -83,12 +83,24 @@ function Admin() {
                }}
             >
                <MultiSelectDropdownComponent
+                  infoPopup={{
+                     explanation: 'Free designation of your declaration / Certificate to help you find it easily in your dashboard',
+                     videoUrl: 'https://www.youtube.com/embed/4NKanx3JEP4?controls=0&modestbranding=1&showinfo=0&iv_load_policy=3'
+                  }}
+                  onInfoPopupHandler={() => {}}
+                  showInfoPopUp={true}
                   style={{ width: '385px' }}
                   onChange={(value) => onChangeSection(value)}
                   options={sectionsList}
                   label="Section responsible"
                />
                <MultiSelectDropdownComponent
+                  infoPopup={{
+                     explanation: 'Free designation of your declaration / Certificate to help you find it easily in your dashboard',
+                     videoUrl: 'https://www.youtube.com/embed/4NKanx3JEP4?controls=0&modestbranding=1&showinfo=0&iv_load_policy=3'
+                  }}
+                  onInfoPopupHandler={() => {}}
+                  showInfoPopUp={true}
                   style={{ width: '385px' }}
                   onChange={(value) => onChangeSubsection(value)}
                   options={subsection}

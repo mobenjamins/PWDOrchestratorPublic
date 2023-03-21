@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import InputLabel from '@mui/material/InputLabel';
@@ -7,6 +8,12 @@ import FormControl from '@mui/material/FormControl';
 import ListItemText from '@mui/material/ListItemText';
 import Select from '@mui/material/Select';
 import Checkbox from '@mui/material/Checkbox';
+import './style.css';
+import InfoIcon from '../../../assets/info-icon.png';
+import playIcon from '../../../assets/play-icon.png';
+import { setShowVideoModal } from '../../../redux/globals.slice';
+import {useClickOutside, addAutoplayToYoutubeUrl} from '../../../helpers';
+
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -19,8 +26,47 @@ const MenuProps = {
    }
 };
 
-function MultiSelectDropdownComponent({ style, options, label, onChange }) {
+function MultiSelectDropdownComponent({ style, options, label, onChange, infoPopup }) {
    const [selectedSection, setSelectedSection] = useState([]);
+   const [showInfoPopUp, setShowInfoPopUp] = useState({});
+   const dispatch = useDispatch();
+   const ref = useRef();
+
+   function handleClickOutside() {
+      console.log('Clicked outside the element');
+      setShowInfoPopUp((prevState) => {
+         return {
+            popUp: {}
+         };
+      });
+   }
+
+   useClickOutside(ref, handleClickOutside);
+
+   const onInfoPopupHandler = (section, event) => {
+      event.stopPropagation();
+      if (showInfoPopUp.popUp && showInfoPopUp.popUp.id === section.id) {
+         setShowInfoPopUp((prevState) => {
+            return {
+               popUp: {}
+            };
+         });
+         return;
+      }
+
+      setShowInfoPopUp(() => {
+         return {
+            popUp: {
+               id: section.id,
+               active: true,
+               persona: section.infoPopUp.persona,
+               reasons: section.infoPopUp.reasons,
+               description: section.infoPopUp.description,
+               videoUrl: section.infoPopUp.videoUrl
+            }
+         };
+      });
+   };
 
    const handleChange = (event) => {
       const {
@@ -31,6 +77,9 @@ function MultiSelectDropdownComponent({ style, options, label, onChange }) {
          // On autofill we get a stringified value.
          typeof value === 'string' ? value.split(',') : value
       );
+   };
+   const onPlayVideoHandler = () => {
+      dispatch(setShowVideoModal({ value: true, videoUrl: addAutoplayToYoutubeUrl(infoPopup.videoUrl) }));
    };
 
    return (
@@ -66,10 +115,40 @@ function MultiSelectDropdownComponent({ style, options, label, onChange }) {
                   <MenuItem key={section.id} value={section.title}>
                      <Checkbox checked={selectedSection.indexOf(section.title) > -1} />
                      <ListItemText primary={section.title} />
+                     {section.infoPopUp?.show && <img src={InfoIcon} className="info-icon" onClick={(event) => onInfoPopupHandler(section, event)} />}
                   </MenuItem>
                ))}
             </Select>
          </FormControl>
+         <div style={{ position: 'relative' }}>
+            {showInfoPopUp?.popUp?.active && (
+               <div className="infoCard2" ref={ref}>
+                  <div className="triangle2"></div>
+                  <div className="info-popup2">
+                     <span className="info-title">Persona:</span> {showInfoPopUp.popUp.persona}
+                  </div>
+                  <div className="info-popup2">
+                     <span className="info-title">Reasons:</span> {showInfoPopUp.popUp.reasons}
+                  </div>
+                  {showInfoPopUp.popUp.videoUrl && (
+                     <div className="Video-wrapper">
+                        <iframe
+                           width="100%"
+                           height="100%"
+                           src={showInfoPopUp.popUp.videoUrl}
+                           title="YouTube video player"
+                           frameborder="0"
+                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                           allowFullScreen
+                        ></iframe>
+                        <div className="video-overlay" onClick={() => onPlayVideoHandler()}>
+                           <img src={playIcon} className="Play-icon" />
+                        </div>
+                     </div>
+                  )}
+               </div>
+            )}
+         </div>
       </div>
    );
 }
