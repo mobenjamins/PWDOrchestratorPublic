@@ -46,6 +46,21 @@ function Home() {
    }, [activeForm]);
 
    const onNavElementChange = (element) => {
+      // if same element is clicked, change it to inactive if active
+      if (element.isActive) {
+         return setSideNavElements(
+            sideNavElements.map((item) => {
+               if (item.title === element.title) {
+                  return {
+                     ...item,
+                     isActive: false
+                  };
+               }
+               return item;
+            })
+         );
+      }
+
       setSideNavElements(
          sideNavElements.map((item, index) => {
             if (item.title === element.title) {
@@ -76,12 +91,7 @@ function Home() {
    return (
       <>
          <div className="body-wrapper">
-            <SideNav
-               onNavElementChange={onNavElementChange}
-               sideNavElements={sideNavElements}
-               onSubSectionNav={onSubSectionNav}
-               step={step}
-            />
+            <SideNav onNavElementChange={onNavElementChange} sideNavElements={sideNavElements} onSubSectionNav={onSubSectionNav} step={step} />
             <div className="right-section">
                <MainSection step={step} setStep={setStep} activeForm={activeForm} />
                <Footer />

@@ -12,8 +12,7 @@ import './style.css';
 import InfoIcon from '../../../assets/info-icon.png';
 import playIcon from '../../../assets/play-icon.png';
 import { setShowVideoModal } from '../../../redux/globals.slice';
-import {useClickOutside, addAutoplayToYoutubeUrl} from '../../../helpers';
-
+import { useClickOutside, addAutoplayToYoutubeUrl } from '../../../helpers';
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;

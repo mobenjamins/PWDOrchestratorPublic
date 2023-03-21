@@ -5,7 +5,7 @@ import './style.css';
 import InfoIcon from '../../../assets/info-icon.png';
 import playIcon from '../../../assets/play-icon.png';
 import { setShowVideoModal } from '../../../redux/globals.slice';
-import {useClickOutside, addAutoplayToYoutubeUrl} from '../../../helpers';
+import { useClickOutside, addAutoplayToYoutubeUrl } from '../../../helpers';
 
 function TextInputComponent({ onChange, label, placeholder, defaultValue, style, infoPopup, errorText, disabled }) {
    const dispatch = useDispatch();
@@ -27,7 +27,7 @@ function TextInputComponent({ onChange, label, placeholder, defaultValue, style,
    };
 
    const onInfoPopupHandler = (event) => {
-      event.stopPropagation()
+      event.stopPropagation();
       setShowInfoPopUp(!showInfoPopUp);
    };
 
