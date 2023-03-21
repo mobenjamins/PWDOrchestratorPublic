@@ -6,10 +6,10 @@ import QuestionHeader from '../QuestionSection/header';
 import DropdownComponent from '../utils/dropdown';
 import TextInputComponent from '../utils/textInput';
 import RadioselectComponent from '../utils/radioselect';
+import AutoCompleteDropdownComponent from '../utils/autocompletedropdown';
 import { sirenAPI } from '../../axios/api';
 import { updateHostEntityForm } from '../../redux/forms/forms.slice';
-import { activityLevelOptions, countries, accomodationExpensesOptions, dutiesOfRepresentative } from './helpers';
-
+import { activityLevelOptions, countries, accomodationExpensesOptions, dutiesOfRepresentative, ActivityLevelOneOptions } from './helpers';
 function HostEntityManager({ step }) {
    const dispatch = useDispatch();
    const [errorText, setErrorText] = useState({
@@ -31,6 +31,12 @@ function HostEntityManager({ step }) {
    const { hostEntityForm } = useSelector((state) => state.forms);
    const [hostForm, setHostEntityForm] = useState(hostEntityForm);
    const [representativeOptions, setRepresentativeOptions] = useState(dutiesOfRepresentative);
+   const [activityLevel, setActivityLevel] = useState({
+      activityLevelOne: '',
+      activityLevelTwo: '',
+      activityLevelThree: '',
+      activityLevelFour: ''
+   });
 
    const onChangeRepsentativeHandler = (element) => {
       setRepresentativeOptions(
@@ -105,6 +111,13 @@ function HostEntityManager({ step }) {
          }
          return;
       }
+   };
+
+   const onSearchSelectChange = (value, level) => {
+      setActivityLevel({
+         ...activityLevel,
+         [level]: value
+      });
    };
 
    const onInPutHandler = (value, section, inputKey) => {
@@ -481,13 +494,40 @@ function HostEntityManager({ step }) {
                   alignItems: 'flex-start'
                }}
             >
-               <DropdownComponent
-                  onChange={(e) => onInPutHandler(e, 'infoAboutService', 'mainActivity')}
-                  options={activityLevelOptions}
+               <AutoCompleteDropdownComponent
+                  onChange={(e) => onSearchSelectChange(e, 'activityLevelOne')}
+                  options={ActivityLevelOneOptions}
                   label="Main activity (4 level) "
                   style={{ width: '100%' }}
-                  defaultValue={hostForm.infoAboutService.mainActivity}
+                  // defaultValue={''}
                />
+               {activityLevel.activityLevelOne && (
+                  <AutoCompleteDropdownComponent
+                     onChange={(e) => onSearchSelectChange(e, 'activityLevelTwo')}
+                     options={ActivityLevelOneOptions}
+                     label="Level two "
+                     style={{ width: '100%', marginLeft: '40px', marginRight: '40px' }}
+                     // defaultValue={''}
+                  />
+               )}
+               {activityLevel.activityLevelTwo && (
+                  <AutoCompleteDropdownComponent
+                     onChange={(e) => onSearchSelectChange(e, 'activityLevelThree')}
+                     options={ActivityLevelOneOptions}
+                     label="Level three "
+                     style={{ width: '100%', marginLeft: '50px', marginRight: '50px' }}
+                     // defaultValue={''}
+                  />
+               )}
+               {activityLevel.activityLevelThree && (
+                  <AutoCompleteDropdownComponent
+                     onChange={(e) => onSearchSelectChange(e, 'activityLevelFour')}
+                     options={ActivityLevelOneOptions}
+                     label="Level four"
+                     style={{ width: '100%', marginLeft: '60px', marginRight: '60px' }}
+                     // defaultValue={''}
+                  />
+               )}
                <TextInputComponent
                   onChange={(e) => onInPutHandler(e, 'infoAboutService', 'useOfHazardousProcess')}
                   placeholder=" true / false"
