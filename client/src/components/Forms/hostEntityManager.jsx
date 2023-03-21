@@ -8,6 +8,7 @@ import TextInputComponent from '../utils/textInput';
 import RadioselectComponent from '../utils/radioselect';
 import AutoCompleteDropdownComponent from '../utils/autocompletedropdown';
 import { sirenAPI } from '../../axios/api';
+import FormTitle from '../formTitle/index';
 import { updateHostEntityForm } from '../../redux/forms/forms.slice';
 import { activityLevelOptions, countries, accomodationExpensesOptions, dutiesOfRepresentative, ActivityLevelOneOptions } from './helpers';
 function HostEntityManager({ step }) {
@@ -172,7 +173,14 @@ function HostEntityManager({ step }) {
    const hostIdentity = () => {
       return (
          <div className="question-section">
-            <div className="Subsection-title">Identity of the host Company </div>
+            <FormTitle
+               infoPopup={{
+                  description:
+                     ' Info mation about the new comapny  mation the about the new comapny  Info mation the the new comapny  Info mation the about new comapny  Info mation about the new the  Info mation about the new comapny  Info mation about the new comapny  Info mation about the new comapny ',
+                  videoUrl: 'https://www.youtube.com/embed/4NKanx3JEP4?controls=0&modestbranding=1&showinfo=0&iv_load_policy=3'
+               }}
+               title="Identity of the host Company"
+            />
             <div
                style={{
                   display: 'flex',
@@ -272,7 +280,14 @@ function HostEntityManager({ step }) {
       return (
          <>
             <div className="question-section">
-               <div className="Subsection-title">Representative in host country </div>
+               <FormTitle
+                  infoPopup={{
+                     description:
+                        ' Info mation about the new comapny  mation the about the new comapny  Info mation the the new comapny  Info mation the about new comapny  Info mation about the new the  Info mation about the new comapny  Info mation about the new comapny  Info mation about the new comapny ',
+                     videoUrl: 'https://www.youtube.com/embed/4NKanx3JEP4?controls=0&modestbranding=1&showinfo=0&iv_load_policy=3'
+                  }}
+                  title="Representative in host country"
+               />
                <div
                   style={{
                      display: 'flex',
@@ -341,7 +356,14 @@ function HostEntityManager({ step }) {
    const contactMeans = () => {
       return (
          <div className="question-section">
-            <div className="Subsection-title">Means for contacting the representative in the host country </div>
+            <FormTitle
+               infoPopup={{
+                  description:
+                     ' Info mation about the new comapny  mation the about the new comapny  Info mation the the new comapny  Info mation the about new comapny  Info mation about the new the  Info mation about the new comapny  Info mation about the new comapny  Info mation about the new comapny ',
+                  videoUrl: 'https://www.youtube.com/embed/4NKanx3JEP4?controls=0&modestbranding=1&showinfo=0&iv_load_policy=3'
+               }}
+               title="Means for contacting the representative in the host country"
+            />
             <div
                style={{
                   display: 'flex',
@@ -371,7 +393,14 @@ function HostEntityManager({ step }) {
    const documentStorage = () => {
       return (
          <div className="question-section">
-            <div className="Subsection-title">Place where the documents, which must be kept available for the inspection services, are stored</div>
+            <FormTitle
+               infoPopup={{
+                  description:
+                     ' Info mation about the new comapny  mation the about the new comapny  Info mation the the new comapny  Info mation the about new comapny  Info mation about the new the  Info mation about the new comapny  Info mation about the new comapny  Info mation about the new comapny ',
+                  videoUrl: 'https://www.youtube.com/embed/4NKanx3JEP4?controls=0&modestbranding=1&showinfo=0&iv_load_policy=3'
+               }}
+               title="Place where the documents, which must be kept available for the inspection services, are stored"
+            />
             <div
                style={{
                   display: 'flex',
@@ -396,7 +425,14 @@ function HostEntityManager({ step }) {
    const datesAndService = () => {
       return (
          <div className="question-section">
-            <div className="Subsection-title">Dates and place of service</div>
+            <FormTitle
+               infoPopup={{
+                  description:
+                     ' Info mation about the new comapny  mation the about the new comapny  Info mation the the new comapny  Info mation the about new comapny  Info mation about the new the  Info mation about the new comapny  Info mation about the new comapny  Info mation about the new comapny ',
+                  videoUrl: 'https://www.youtube.com/embed/4NKanx3JEP4?controls=0&modestbranding=1&showinfo=0&iv_load_policy=3'
+               }}
+               title="Dates and place of service"
+            />
             <div
                style={{
                   display: 'flex',
@@ -484,7 +520,14 @@ function HostEntityManager({ step }) {
    const serviceInformation = () => {
       return (
          <div className="question-section">
-            <div className="Subsection-title">Information about the service </div>
+            <FormTitle
+               infoPopup={{
+                  description:
+                     ' Info mation about the new comapny  mation the about the new comapny  Info mation the the new comapny  Info mation the about new comapny  Info mation about the new the  Info mation about the new comapny  Info mation about the new comapny  Info mation about the new comapny ',
+                  videoUrl: 'https://www.youtube.com/embed/4NKanx3JEP4?controls=0&modestbranding=1&showinfo=0&iv_load_policy=3'
+               }}
+               title="Information about the service"
+            />
             <div
                style={{
                   display: 'flex',
@@ -587,7 +630,7 @@ function HostEntityManager({ step }) {
 
    return (
       <div className="QuestionSection-wrapper">
-         <QuestionHeader title="Host Entity Information" subTitle="Declartion - Mobility of Employee Withing The Same Group - Edition" />
+         <QuestionHeader title="Host Entity Information" subTitle="Declaration - Mobility of Employee Within The Same Group" />
          {StepRenderer(step)}
       </div>
    );

@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './style.css';
 import QuestionHeader from '../QuestionSection/header';
-import InfoIcon from '../../assets/info-icon.png';
 import DropdownComponent from '../utils/dropdown';
 import TextInputComponent from '../utils/textInput';
 import RadioselectComponent from '../utils/radioselect';
 import { countries, allRadioOptions, accomodationExpensesOptions, foodExpensesOptions } from './helpers';
+import FormTitle from '../formTitle/index';
 
 function HomeEntityManager({ step }) {
    const [radioOptions, setRadioOptions] = useState(allRadioOptions);
@@ -72,7 +72,14 @@ function HomeEntityManager({ step }) {
    const homeIdentity = () => {
       return (
          <div className="question-section">
-            <div className="Subsection-title">Identity of the home entity </div>
+            <FormTitle
+               infoPopup={{
+                  description:
+                     ' Info mation about the new comapny  mation the about the new comapny  Info mation the the new comapny  Info mation the about new comapny  Info mation about the new the  Info mation about the new comapny  Info mation about the new comapny  Info mation about the new comapny ',
+                  videoUrl: 'https://www.youtube.com/embed/4NKanx3JEP4?controls=0&modestbranding=1&showinfo=0&iv_load_policy=3'
+               }}
+               title="Identity of the home entity "
+            />
             <div
                style={{
                   display: 'flex',
@@ -114,7 +121,14 @@ function HomeEntityManager({ step }) {
    const legalFormOfHomeEntity = () => {
       return (
          <div className="question-section">
-            <div className="Subsection-title">Registration and legal form of the entity</div>
+            <FormTitle
+               infoPopup={{
+                  description:
+                     ' Info mation about the new comapny  mation the about the new comapny  Info mation the the new comapny  Info mation the about new comapny  Info mation about the new the  Info mation about the new comapny  Info mation about the new comapny  Info mation about the new comapny ',
+                  videoUrl: 'https://www.youtube.com/embed/4NKanx3JEP4?controls=0&modestbranding=1&showinfo=0&iv_load_policy=3'
+               }}
+               title="Registration and legal form of the entity"
+            />
             <div
                style={{
                   display: 'flex',
@@ -139,7 +153,14 @@ function HomeEntityManager({ step }) {
    const directorsInformation = () => {
       return (
          <div className="question-section">
-            <div className="Subsection-title">Director’s information </div>
+            <FormTitle
+               infoPopup={{
+                  description:
+                     ' Info mation about the new comapny  mation the about the new comapny  Info mation the the new comapny  Info mation the about new comapny  Info mation about the new the  Info mation about the new comapny  Info mation about the new comapny  Info mation about the new comapny ',
+                  videoUrl: 'https://www.youtube.com/embed/4NKanx3JEP4?controls=0&modestbranding=1&showinfo=0&iv_load_policy=3'
+               }}
+               title="Director’s information "
+            />
             <div
                style={{
                   display: 'flex',
@@ -167,7 +188,14 @@ function HomeEntityManager({ step }) {
    const financialGuarantee = () => {
       return (
          <div className="question-section">
-            <div className="Subsection-title">Financial guarantee body </div>
+            <FormTitle
+               infoPopup={{
+                  description:
+                     ' Info mation about the new comapny  mation the about the new comapny  Info mation the the new comapny  Info mation the about new comapny  Info mation about the new the  Info mation about the new comapny  Info mation about the new comapny  Info mation about the new comapny ',
+                  videoUrl: 'https://www.youtube.com/embed/4NKanx3JEP4?controls=0&modestbranding=1&showinfo=0&iv_load_policy=3'
+               }}
+               title="Financial guarantee body"
+            />
             <div
                style={{
                   display: 'flex',
@@ -191,7 +219,14 @@ function HomeEntityManager({ step }) {
    const typeOfPosting = () => {
       return (
          <div className="question-section">
-            <div className="Subsection-title">Type of posting </div>
+            <FormTitle
+               infoPopup={{
+                  description:
+                     ' Info mation about the new comapny  mation the about the new comapny  Info mation the the new comapny  Info mation the about new comapny  Info mation about the new the  Info mation about the new comapny  Info mation about the new comapny  Info mation about the new comapny ',
+                  videoUrl: 'https://www.youtube.com/embed/4NKanx3JEP4?controls=0&modestbranding=1&showinfo=0&iv_load_policy=3'
+               }}
+               title="Type of posting "
+            />
             <div
                style={{
                   display: 'flex',
@@ -235,7 +270,14 @@ function HomeEntityManager({ step }) {
    const serviceSites = () => {
       return (
          <div className="question-section">
-            <div className="Subsection-title">Service Sites</div>
+            <FormTitle
+               infoPopup={{
+                  description:
+                     ' Info mation about the new comapny  mation the about the new comapny  Info mation the the new comapny  Info mation the about new comapny  Info mation about the new the  Info mation about the new comapny  Info mation about the new comapny  Info mation about the new comapny ',
+                  videoUrl: 'https://www.youtube.com/embed/4NKanx3JEP4?controls=0&modestbranding=1&showinfo=0&iv_load_policy=3'
+               }}
+               title="Service Sites "
+            />
             <div className="standard-input-label" style={{ marginTop: '20px' }}>
                Where will the posted workers work?
             </div>
@@ -249,7 +291,14 @@ function HomeEntityManager({ step }) {
    const travelExpenses = () => {
       return (
          <div className="question-section">
-            <div className="Subsection-title">Travel expenses </div>
+            <FormTitle
+               infoPopup={{
+                  description:
+                     ' Info mation about the new comapny  mation the about the new comapny  Info mation the the new comapny  Info mation the about new comapny  Info mation about the new the  Info mation about the new comapny  Info mation about the new comapny  Info mation about the new comapny ',
+                  videoUrl: 'https://www.youtube.com/embed/4NKanx3JEP4?controls=0&modestbranding=1&showinfo=0&iv_load_policy=3'
+               }}
+               title="Travel expenses"
+            />
             <div
                style={{
                   display: 'flex',
@@ -276,7 +325,14 @@ function HomeEntityManager({ step }) {
    const livingFoodExpenses = () => {
       return (
          <div className="question-section">
-            <div className="Subsection-title">Living (food) expenses </div>
+            <FormTitle
+               infoPopup={{
+                  description:
+                     ' Info mation about the new comapny  mation the about the new comapny  Info mation the the new comapny  Info mation the about new comapny  Info mation about the new the  Info mation about the new comapny  Info mation about the new comapny  Info mation about the new comapny ',
+                  videoUrl: 'https://www.youtube.com/embed/4NKanx3JEP4?controls=0&modestbranding=1&showinfo=0&iv_load_policy=3'
+               }}
+               title="Living (food) expenses"
+            />
             <div
                style={{
                   display: 'flex',
@@ -303,7 +359,14 @@ function HomeEntityManager({ step }) {
    const accomodationExpenses = () => {
       return (
          <div className="question-section">
-            <div className="Subsection-title">Accommodation Expenses </div>
+            <FormTitle
+               infoPopup={{
+                  description:
+                     ' Info mation about the new comapny  mation the about the new comapny  Info mation the the new comapny  Info mation the about new comapny  Info mation about the new the  Info mation about the new comapny  Info mation about the new comapny  Info mation about the new comapny ',
+                  videoUrl: 'https://www.youtube.com/embed/4NKanx3JEP4?controls=0&modestbranding=1&showinfo=0&iv_load_policy=3'
+               }}
+               title="Accommodation Expenses"
+            />
             <div
                style={{
                   display: 'flex',
@@ -353,7 +416,7 @@ function HomeEntityManager({ step }) {
 
    return (
       <div className="QuestionSection-wrapper">
-         <QuestionHeader title="Home Entity Information" subTitle="Declartion - Mobility of Employee Withing The Same Group - Edition" />
+         <QuestionHeader title="Home Entity Information" subTitle="Declaration - Mobility of Employee Withing The Same Group - Edition" />
 
          {/* <div className='input-section'>
           <div className='standard-input-label'>Name</div>

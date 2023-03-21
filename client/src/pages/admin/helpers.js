@@ -9,11 +9,6 @@ export const sectionsList = [
          reasons:
             "The Home Entity Manager is responsible for the foreign company's operations in their home country, including the decision to move employees within the same group. They have access to the necessary information, such as the company's legal name, address, and contact details."
       },
-      // infoPopUp: {
-      //    show: true,
-      //    description: 'I wanna do this rn',
-      //    videoUrl: 'https://www.youtube.com/embed/4NKanx3JEP4?controls=0&modestbranding=1&showinfo=0&iv_load_policy=3'
-      // },
       subsectionsList: [
          {
             title: 'Identity of the home company',
