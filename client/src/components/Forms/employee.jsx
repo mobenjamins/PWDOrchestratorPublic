@@ -14,9 +14,7 @@ function EmployeeForm({ step }) {
       return (
          <>
             <div className="question-section">
-               <FormTitle
-                  title="Personal Information"
-               />
+               <FormTitle title="Personal Information" />
                <div
                   style={{
                      display: 'flex',
@@ -28,7 +26,7 @@ function EmployeeForm({ step }) {
                >
                   <TextInputComponent onChange={(e) => console.log(e)} placeholder="Gender" label="gender" />
                   <TextInputComponent onChange={(e) => console.log(e)} placeholder="Doe" label="Last name" />
-                  <TextInputComponent onChange={(e) => console.log(e)} placeholder="John" label="John" />
+                  <TextInputComponent onChange={(e) => console.log(e)} placeholder="John" label="First name" />
                   <TextInputComponent onChange={(e) => console.log(e)} placeholder="Date of birth" label="13 Jun 1990" />
                   <DropdownComponent onChange={(value) => console.log('Town / city ', value)} options={countries} label="Town / city" />
                   <DropdownComponent onChange={(value) => console.log('Country ', value)} options={countries} label="Country of birth" />

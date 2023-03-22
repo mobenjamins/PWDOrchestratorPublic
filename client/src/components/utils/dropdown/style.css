@@ -1,64 +1,65 @@
-.input-section{
-  display: flex;
-  flex-direction: column;
-  margin-top: 15px;
+.input-section {
+   display: flex;
+   flex-direction: column;
+   margin-top: 15px;
 }
-.standard-input-label{
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 22px;
-  color: #000000;
-  opacity: 0.8;
-  margin-bottom: 10px;
-}
-
-.standard-select{
-  background: #F1F5FB;
-  border: 1px solid #CAD9EE;
-  border-radius: 10px;
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 20px;
-  color: #70737A;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  background-image: url('../../../assets/dropdown-icon.png');
-  background-size: 20px;
-  background-repeat: no-repeat;
-  background-position: 95% 50%;
-  padding: 0px 0px;
-}
-.standard-select:focus{
-  outline: none;
-  border: 0px;
-}
-.standard-select:hover{
-  cursor: pointer;
+.standard-input-label {
+   font-family: 'Montserrat';
+   font-style: normal;
+   font-weight: 500;
+   font-size: 18px;
+   line-height: 22px;
+   color: #000000;
+   opacity: 0.8;
+   margin-bottom: 10px;
 }
 
-.standard-input-select{
-  background: transparent;
-  border: 0px;
-  font-family: 'Montserrat';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 20px;
-  color: #70737A;
-  padding: 20px;
-  width: 100%;
-
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+.standard-select {
+   background: #f1f5fb;
+   border: 1px solid #cad9ee;
+   border-radius: 10px;
+   font-family: 'Montserrat';
+   font-style: normal;
+   font-weight: 500;
+   font-size: 16px;
+   line-height: 20px;
+   color: #70737a;
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   background-image: url('../../../assets/dropdown-icon.png');
+   background-size: 20px;
+   background-repeat: no-repeat;
+   background-position: 95% 50%;
+   padding: 0px 0px;
+   max-width: 435px;
+}
+.standard-select:focus {
+   outline: none;
+   border: 0px;
+}
+.standard-select:hover {
+   cursor: pointer;
 }
 
-.standard-input-select:focus{
-  outline: none;
-  border: 0px;
+.standard-input-select {
+   background: transparent;
+   border: 0px;
+   font-family: 'Montserrat';
+   font-style: normal;
+   font-weight: 500;
+   font-size: 16px;
+   line-height: 20px;
+   color: #70737a;
+   padding: 18px !important;
+   width: 90% !important;
+
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+}
+
+.standard-input-select:focus {
+   outline: none;
+   border: 0px;
 }

@@ -1,76 +1,66 @@
-.wrapper{
-  display: flex;
-  flex-direction: row;
-  min-height: 100%;
-  background-color: #F1F5FB;
+.wrapper {
+   display: flex;
+   flex-direction: row;
+   min-height: 100%;
+   background-color: #f1f5fb;
 }
 
-.side-section{
-  width: 250px;
-  background-color: #212121;
+.side-section {
+   width: 250px;
+   background-color: #212121;
 }
 
-.body-section{
-  width: 100%;
-  padding: 20px;
-  position: relative;
+.body-section {
+   width: 100%;
+   padding: 20px;
+   position: relative;
 }
-.saveBtn{
-  position: absolute;
-  top: 30px;
-  right: 30px;
-  font-size: 16px;
-  font-weight: 800;
-  font-family: 'Inter';
+.saveBtn {
+   position: absolute;
+   top: 30px;
+   right: 30px;
+   font-size: 16px;
+   font-weight: 800;
+   font-family: 'Inter';
 }
-
-
-
-
-
-
-
-
-
-
 
 table {
-  border-collapse: collapse;
-  width: 100%;
-  margin: 70px 0;
-  font-size: 1em;
-  font-family: sans-serif;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+   border-collapse: collapse;
+   width: 100%;
+   margin: 70px 0;
+   font-size: 1em;
+   font-family: sans-serif;
+   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
 th {
-  background-color: #51d887;
-  color: #fff;
-  font-weight: bold;
-  padding: 12px 15px;
-  text-align: left;
+   background-color: black;
+   color: #f2f2f2;
+   font-weight: bold;
+   padding: 20px 15px;
+   text-align: left;
 }
 
 td {
-  color: black;
-  padding: 12px 15px;
-  text-align: left;
-  vertical-align: middle;
-  border-bottom: 1px solid #f2f2f2;
-  border-bottom: 0.5px solid #51d887;
+   color: black;
+   padding: 12px 15px;
+   text-align: left;
+   vertical-align: middle;
+   border-bottom: 1px solid #f2f2f2;
+   border-bottom: 0.5px solid #caefd9;
 }
 
 tr:hover td {
-  background-color: #caefd9;
+   background-color: #caefd9;
 }
 
-.edit-icon{
-  width: 25px;
-  height: 25px;
+.edit-icon {
+   width: 25px;
+   height: 25px;
 }
 
-.edit-icon:hover{
-  cursor: pointer;
-  transform: scale(1.2);
-  transition: ease-in-out;
+.edit-icon:hover {
+   cursor: pointer;
+   transform: scale(1.2);
+   transition: ease-in-out;
 }

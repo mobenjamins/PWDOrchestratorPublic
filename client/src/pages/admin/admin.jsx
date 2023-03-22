@@ -84,36 +84,33 @@ function Admin() {
             >
                <MultiSelectDropdownComponent
                   infoPopup={{
-                     explanation: 'Free designation of your declaration / Certificate to help you find it easily in your dashboard',
-                     videoUrl: 'https://www.youtube.com/embed/4NKanx3JEP4?controls=0&modestbranding=1&showinfo=0&iv_load_policy=3'
+                     explanation: 'Section of the declaration to be filled in by the entity'
                   }}
                   onInfoPopupHandler={() => {}}
                   showInfoPopUp={true}
                   style={{ width: '385px' }}
                   onChange={(value) => onChangeSection(value)}
                   options={sectionsList}
-                  label="Section responsible"
+                  label="Main Section"
                />
                <MultiSelectDropdownComponent
                   infoPopup={{
-                     explanation: 'Free designation of your declaration / Certificate to help you find it easily in your dashboard',
-                     videoUrl: 'https://www.youtube.com/embed/4NKanx3JEP4?controls=0&modestbranding=1&showinfo=0&iv_load_policy=3'
+                     explanation: 'Sub section of the declaration to be filled in by the entity'
                   }}
                   onInfoPopupHandler={() => {}}
                   showInfoPopUp={true}
                   style={{ width: '385px' }}
                   onChange={(value) => onChangeSubsection(value)}
                   options={subsection}
-                  label="Sub-section responsible"
+                  label="Sub Section"
                />
                <TextInputComponent
                   style={{ minWidth: '350px' }}
                   onChange={(e) => onChangeText(e, 'email')}
                   placeholder="email"
-                  label="Responsible person email"
+                  label="Responsible person's email"
                   infoPopup={{
-                     explanation: 'Free designation of your declaration / Certificate to help you find it easily in your dashboard',
-                     videoUrl: 'https://www.youtube.com/embed/4NKanx3JEP4?controls=0&modestbranding=1&showinfo=0&iv_load_policy=3'
+                     explanation: 'Email of the person responsible for the declaration'
                   }}
                />
                <TextInputComponent
@@ -121,34 +118,53 @@ function Admin() {
                   onChange={(e) => onChangeText(e, 'dateIssued')}
                   placeholder="7 April 2023"
                   label="Date issued"
+                  infoPopup={{
+                     explanation: "Date when the user's declaration was issued"
+                  }}
                />
                <TextInputComponent
                   style={{ minWidth: '350px' }}
                   onChange={(e) => onChangeText(e, 'automatedReminder1')}
                   placeholder="7 April 2023"
                   label="Automated Reminder 1"
+                  infoPopup={{
+                     explanation: "Schedule when the reminder will be sent to the user's email"
+                  }}
                />
                <TextInputComponent
                   style={{ minWidth: '350px' }}
                   onChange={(e) => onChangeText(e, 'automatedReminder2')}
                   placeholder="7 April 2023"
                   label="Automated Reminder 2"
+                  infoPopup={{
+                     explanation: "Schedule when the 2nd reminder will be sent to the user's email"
+                  }}
                />
                <DropdownComponent
                   style={{ width: '385px' }}
                   onChange={(value) => onChangeText(value.value, 'manualReminder')}
                   options={booleanOptions}
                   label="Manual Reminder template"
+                  infoPopup={{
+                     explanation: 'Whether to use the manual reminder template'
+                  }}
                />
                <TextInputComponent
                   style={{ minWidth: '350px' }}
                   onChange={(e) => onChangeText(e, 'escalationPoint')}
                   placeholder="email"
                   label="Escalation point"
+                  infoPopup={{
+                     explanation: "The second email to which the reminder will be sent if the user doesn't respond to the first one"
+                  }}
                />
                <div className="next-btn" style={{ minWidth: '300px', backgroundColor: 'transparent', boxShadow: 'none' }} />
             </div>
-            <div className="next-btn" onClick={() => onSubFormData()} style={{ display: 'flex', marginTop: '60px' }}>
+            <div
+               className="next-btn"
+               onClick={() => onSubFormData()}
+               style={{ display: 'flex', marginTop: '60px', color: 'black', fontWeight: '600', fontSize: '20px' }}
+            >
                <div>Save</div>
             </div>
          </div>
