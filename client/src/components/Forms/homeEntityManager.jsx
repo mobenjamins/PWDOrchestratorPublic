@@ -91,7 +91,7 @@ function HomeEntityManager({ step }) {
             >
                <TextInputComponent
                   onChange={(e) => console.log(e)}
-                  placeholder="Company name"
+                  placeholder="Corporate name"
                   label="Corporate name"
                   infoPopup={{
                      explanation: 'Free designation of your declaration / Certificate to help you find it easily in your dashboard',

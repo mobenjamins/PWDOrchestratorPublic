@@ -38,7 +38,7 @@
    border: 1.5px solid #5aee95;
 }
 
-.infoCard {
+.infoCard5 {
    display: flex;
    flex-direction: column;
    align-items: center;
@@ -48,8 +48,8 @@
 
    position: absolute;
    width: 300px;
-   top: 60px;
-   right: 0px;
+   top: 44px;
+   left: -9px;
    z-index: 20;
 }
 
@@ -98,7 +98,7 @@
    transition: ease-in-out 0.2s;
 }
 
-.triangle {
+.triangle3 {
    width: 0;
    height: 0;
    border-left: 30px solid transparent;
@@ -106,6 +106,6 @@
    border-bottom: 40px solid #ffffff;
    position: inherit;
    top: -20px;
-   right: 0px;
+   left: 0px;
    border-radius: 10px;
 }

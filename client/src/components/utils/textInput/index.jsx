@@ -37,11 +37,50 @@ function TextInputComponent({ onChange, label, placeholder, defaultValue, style,
 
    return (
       <div className="input-section" style={style}>
-         <div className="standard-input-label">
-            {label}{' '}
-            {(errorText && errorText.error) || (errorText && errorText.message) ? (
-               <span style={{ color: errorText.error ? 'orangered' : 'green' }}>- {errorText.message}</span>
-            ) : null}
+         <div
+            style={{
+               display: 'flex',
+               flexDirection: 'row',
+               position: 'relative'
+            }}
+         >
+            <div className="standard-input-label">
+               {label}{' '}
+               {(errorText && errorText.error) || (errorText && errorText.message) ? (
+                  <span style={{ color: errorText.error ? 'orangered' : 'green' }}>- {errorText.message}</span>
+               ) : null}
+            </div>
+            <div
+               style={{
+                  position: 'relative',
+                  display: 'flex',
+                  flexDirection: 'row'
+               }}
+            >
+               {infoPopup && <img src={InfoIcon} className="info-icon standard-input-label" onClick={(event) => onInfoPopupHandler(event)} />}
+               {showInfoPopUp && (
+                  <div className="infoCard5" ref={ref}>
+                     <div className="triangle3"></div>
+                     <div className="info-popup">{infoPopup.explanation}</div>
+                     {infoPopup.videoUrl && (
+                        <div className="Video-wrapper">
+                           <iframe
+                              width="100%"
+                              height="100%"
+                              src={infoPopup.videoUrl}
+                              title="YouTube video player"
+                              frameborder="0"
+                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                              allowFullScreen
+                           ></iframe>
+                           <div className="video-overlay" onClick={() => onPlayVideoHandler()}>
+                              <img src={playIcon} className="Play-icon" />
+                           </div>
+                        </div>
+                     )}
+                  </div>
+               )}
+            </div>
          </div>
          <div className="standard-input" style={{ ...style }}>
             <input
@@ -52,27 +91,6 @@ function TextInputComponent({ onChange, label, placeholder, defaultValue, style,
                placeholder={placeholder}
                onChange={(e) => handleSelectChange(e)}
             />
-            {infoPopup && <img src={InfoIcon} className="info-icon" onClick={(event) => onInfoPopupHandler(event)} />}
-            {showInfoPopUp && (
-               <div className="infoCard" ref={ref}>
-                  <div className="triangle"></div>
-                  <div className="info-popup">{infoPopup.explanation}</div>
-                  <div className="Video-wrapper">
-                     <iframe
-                        width="100%"
-                        height="100%"
-                        src={infoPopup.videoUrl}
-                        title="YouTube video player"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                     ></iframe>
-                     <div className="video-overlay" onClick={() => onPlayVideoHandler()}>
-                        <img src={playIcon} className="Play-icon" />
-                     </div>
-                  </div>
-               </div>
-            )}
          </div>
       </div>
    );

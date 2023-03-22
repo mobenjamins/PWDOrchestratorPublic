@@ -122,9 +122,6 @@ function HostEntityManager({ step }) {
    };
 
    const onInPutHandler = (value, section, inputKey) => {
-      console.log({
-         hostForm
-      });
       if (inputKey === 'siret' && value.length === 14) {
          onChangeSiretHandler(value, section, inputKey);
       }
@@ -176,7 +173,7 @@ function HostEntityManager({ step }) {
             <FormTitle
                infoPopup={{
                   description:
-                     ' Info mation about the new comapny  mation the about the new comapny  Info mation the the new comapny  Info mation the about new comapny  Info mation about the new the  Info mation about the new comapny  Info mation about the new comapny  Info mation about the new comapny ',
+                     ' Information about the new comapny  mation the about the new comapny  Info mation the the new comapny  Info mation the about new comapny  Info mation about the new the  Info mation about the new comapny  Info mation about the new comapny  Info mation about the new comapny ',
                   videoUrl: 'https://www.youtube.com/embed/4NKanx3JEP4?controls=0&modestbranding=1&showinfo=0&iv_load_policy=3'
                }}
                title="Identity of the host Company"
@@ -258,17 +255,16 @@ function HostEntityManager({ step }) {
                   flexWrap: 'wrap',
                   justifyContent: 'space-between',
                   alignItems: 'flex-start',
-                  width: '100%',
-                  marginBottom: '20px'
+                  width: '100%'
                }}
             >
                <div className="question-section">
-                  <div className="standard-input-label" style={{ marginTop: '20px' }}>
-                     Please specify the duties of the company's representative for this service.
-                  </div>
-                  {representativeOptions.map((item, index) => {
-                     return <RadioselectComponent item={item} onChange={onChangeRepsentativeHandler} />;
-                  })}
+                  <DropdownComponent
+                     onChange={(value) => onInPutHandler(value, 'identityOfHostCompany', 'city')}
+                     options={representativeOptions}
+                     label="Please specify the duties of the company's representative for this service."
+                     defaultValue={hostForm.identityOfHostCompany.city}
+                  />
                </div>
                {/* <TextInputComponent onChange={(e) => console.log(e)} placeholder="Travel Expenses Budget" label="Travel Expenses Budget" /> */}
             </div>
@@ -310,6 +306,11 @@ function HostEntityManager({ step }) {
                      }}
                   /> */}
                   <TextInputComponent
+                     infoPopup={{
+                        description:
+                           ' Information about the new comapny  mation the about the new comapny  Info mation the the new comapny  Info mation the about new comapny  Info mation about the new the  Info mation about the new comapny  Info mation about the new comapny  Info mation about the new comapny ',
+                        videoUrl: 'https://www.youtube.com/embed/4NKanx3JEP4?controls=0&modestbranding=1&showinfo=0&iv_load_policy=3'
+                     }}
                      onChange={(value) => onInPutHandler(value, 'representativeInHostCountry', 'siret')}
                      placeholder="78013017514688"
                      label="SIRET number"
@@ -571,20 +572,24 @@ function HostEntityManager({ step }) {
                      // defaultValue={''}
                   />
                )}
-               <TextInputComponent
-                  onChange={(e) => onInPutHandler(e, 'infoAboutService', 'useOfHazardousProcess')}
-                  placeholder=" true / false"
-                  label="Use of hazardous process or equipment "
-                  style={{ width: '98%' }}
+               <DropdownComponent
+                  onChange={(e) => onInPutHandler(e.value, 'infoAboutService', 'useOfHazardousProcess')}
+                  options={[
+                     { value: 'true', title: 'Yes' },
+                     { value: 'false', title: 'No' }
+                  ]}
+                  label="Use of hazardous process or equipment"
                   defaultValue={hostForm.infoAboutService.useOfHazardousProcess}
                />
-               <TextInputComponent
-                  onChange={(e) => onInPutHandler(e, 'infoAboutService', 'hazardousProcess')}
-                  placeholder=" reason"
-                  label="If yes, please specify"
-                  style={{ width: '98%' }}
-                  defaultValue={hostForm.infoAboutService.hazardousProcess}
-               />
+               {hostForm?.infoAboutService?.useOfHazardousProcess === 'true' && (
+                  <TextInputComponent
+                     onChange={(e) => onInPutHandler(e, 'infoAboutService', 'hazardousProcess')}
+                     placeholder=" reason"
+                     label="Please specify"
+                     // style={{ width: '98%' }}
+                     defaultValue={hostForm.infoAboutService.hazardousProcess}
+                  />
+               )}
                <TextInputComponent
                   onChange={(e) => onInPutHandler(e, 'infoAboutService', 'workStartTime')}
                   placeholder=" 09:00:00"
@@ -604,6 +609,11 @@ function HostEntityManager({ step }) {
                   defaultValue={hostForm.infoAboutService.restDays}
                />
                <TextInputComponent
+                  infoPopup={{
+                     explanation:
+                        'If you are unable to indicate regular start and finish times for he work, including provisional times (for example, cyclical work, shift work, personalised working hours), a document showing the number of hours worked must be completed and made available to inspection agents at place of work'
+                     // videoUrl: 'https://www.youtube.com/embed/4NKanx3JEP4?controls=0&modestbranding=1&showinfo=0&iv_load_policy=3'
+                  }}
                   onChange={(e) => onInPutHandler(e, 'infoAboutService', 'otherWorkArrangements')}
                   placeholder="True / false"
                   label="Other types of working hour arrangemnets"
