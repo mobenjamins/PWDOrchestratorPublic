@@ -30,7 +30,13 @@ export const sectionsList = [
          {
             title: 'Director of the home entity',
             value: 'Director of the home entity',
-            id: 'homeEntityDirector'
+            id: 'homeEntityDirector',
+            infoPopUp: {
+               show: true,
+               persona: 'Director of the home entity',
+               reasons:
+                  "The Home Entity Director is responsible for the foreign company's operations in their home country, including the decision to move employees within the same group. They have access to the necessary information, such as the company's legal name, address, and contact details."
+            }
          }
       ]
    },
@@ -40,9 +46,9 @@ export const sectionsList = [
       value: 'Host Entity Manager',
       infoPopUp: {
          show: true,
-         persona: 'Home Entity Manager',
+         persona: 'Host Entity Manager',
          reasons:
-            "The Home Entity Manager is responsible for the foreign company's operations in their home country, including the decision to move employees within the same group. They have access to the necessary information, such as the company's legal name, address, and contact details.",
+            "The Host Entity Manager is responsible for the Host company's operations in their Host country, including the decision to move employees within the same group. They have access to the necessary information, such as the company's legal name, address, and contact details.",
          videoUrl: 'https://www.youtube.com/embed/4NKanx3JEP4?controls=0&modestbranding=1&showinfo=0&iv_load_policy=3'
       },
       subsectionsList: [
@@ -59,7 +65,14 @@ export const sectionsList = [
          {
             title: 'Representative of the host entity',
             value: 'Representative of the host entity',
-            id: 'hostEntityRepresentative'
+            id: 'hostEntityRepresentative',
+            infoPopUp: {
+               show: true,
+               persona: 'Representative of the host entity',
+               videoUrl: 'https://www.youtube.com/embed/4NKanx3JEP4?controls=0&modestbranding=1&showinfo=0&iv_load_policy=3',
+               reasons:
+                  "The Representative of the Host  Entity is responsible for the foreign company's operations in their home country, including the decision to move employees within the same group. They have access to the necessary information, such as the company's legal name, address, and contact details."
+            }
          },
          {
             title: 'Means for contacting the representative in the host country',

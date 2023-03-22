@@ -456,11 +456,19 @@ function HostEntityManager({ step }) {
                   defaultValue={hostForm.datesAndPlace.serviceEndDate}
                />
                <TextInputComponent
+                  infoPopup={{
+                     explanation:
+                        'A SIREN number is a unique 9-digit identification number assigned to each business in France. It is used to identify the business as a legal entity and is part of the SIRET number, which also includes the NIC number.'
+                  }}
                   onChange={(e) => onInPutHandler(e, 'datesAndPlace', 'siren')}
                   label="SIREN number"
                   defaultValue={hostForm.datesAndPlace.siren}
                />
                <TextInputComponent
+                  infoPopup={{
+                     explanation:
+                        'A SIRET number is a unique 14-digit identification number assigned to each business establishment in France. It is used to identify the location of the business and is composed of two parts: the SIREN number and the NIC number.'
+                  }}
                   onChange={(e) => onInPutHandler(e, 'datesAndPlace', 'siret')}
                   placeholder="78013017514688"
                   label="SIRET number"
@@ -496,8 +504,12 @@ function HostEntityManager({ step }) {
                   defaultValue={hostForm.datesAndPlace.addressline2}
                />
                <TextInputComponent
+                  infoPopup={{
+                     explanation:
+                        'NAF code is a 5-digit code that identifies the economic activity of a business. It is used to classify businesses according to their main activity.'
+                  }}
                   onChange={(e) => onInPutHandler(e, 'datesAndPlace', 'nafCode')}
-                  placeholder="4576456743576"
+                  placeholder="23453"
                   label="NAF code"
                   defaultValue={hostForm.datesAndPlace.nafCode}
                />

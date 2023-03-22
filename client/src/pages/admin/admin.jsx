@@ -209,9 +209,9 @@ function Admin() {
                <table>
                   <thead>
                      <tr>
-                        <th>Section</th>
-                        <th>Subsection</th>
-                        <th>Responsible person</th>
+                        <th>Main Section</th>
+                        <th>Sub Subsection</th>
+                        <th>Responsible person's email</th>
                         <th>Date Issued</th>
                         <th>Automated Reminder1</th>
                         <th>Automated Reminder2</th>

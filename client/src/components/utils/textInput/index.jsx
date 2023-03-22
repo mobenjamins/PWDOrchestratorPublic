@@ -61,7 +61,9 @@ function TextInputComponent({ onChange, label, placeholder, defaultValue, style,
                {showInfoPopUp && (
                   <div className="infoCard5" ref={ref}>
                      <div className="triangle3"></div>
-                     <div className="info-popup">{infoPopup.explanation}</div>
+                     <div className="info-popup" style={{ textAlign: 'start' }}>
+                        {infoPopup.explanation}
+                     </div>
                      {infoPopup.videoUrl && (
                         <div className="Video-wrapper">
                            <iframe
