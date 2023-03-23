@@ -88,8 +88,8 @@ function TextInputComponent({ onChange, label, placeholder, defaultValue, style,
             className="standard-input"
             style={{
                ...style,
-               backgroundColor: (errorText && errorText.error) || (errorText && errorText.message) ? '#FFE1E5' : 'initial',
-               borderColor: (errorText && errorText.error) || (errorText && errorText.message) ? '#E2001D' : 'initial'
+               backgroundColor: (errorText && errorText.error) || (errorText && errorText.message) ? '#FFE1E5' : '#f1f5fb',
+               borderColor: (errorText && errorText.error) || (errorText && errorText.message) ? '#E2001D' : '#cad9ee'
             }}
          >
             <input
