@@ -8,7 +8,7 @@ import { AccountSvgIcon, DeleteIcon, LockIcon } from './account-svg';
 import { DeleteAccount, ChangePassword, EditAccount } from './components';
 
 function Account() {
-   const [active, setActive] = useState({});
+   const [active, setActive] = useState({first: true});
 
    const onNavHandler = (nav) => {
       setActive((prev) => {
