@@ -1,10 +1,13 @@
 import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import logoImage from '../../assets/cozm-logo.png';
 import './style.css';
+import { setShowLogoutModal } from '../../redux/globals.slice';
 
 function Header(props) {
+   const dispatch = useDispatch();
    const [activePage, setActivePage] = React.useState('');
    const navigate = useNavigate();
 
@@ -17,6 +20,10 @@ function Header(props) {
    const pageHandler = (page) => {
       setActivePage(page);
       navigate(`/${page}`);
+   };
+
+   const logoutHandler = () => {
+      dispatch(setShowLogoutModal({ value: true }));
    };
 
    return (
@@ -41,7 +48,7 @@ function Header(props) {
             <div className={`navList-item ${activePage === 'admin' ? 'navList-item-active' : ''}`} onClick={() => pageHandler('admin')}>
                Admin
             </div>
-            <div className="logout-btn">
+            <div className="logout-btn" onClick={() => logoutHandler()}>
                <p>Logout</p>
             </div>
          </div>

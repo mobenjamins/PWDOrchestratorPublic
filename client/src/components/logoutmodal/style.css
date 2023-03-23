@@ -1,0 +1,91 @@
+.logout-modal {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100vw;
+   height: 100vh;
+   background: rgba(0, 0, 0, 0.89);
+   z-index: 9999;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.logout-wrapper {
+   width: 517px;
+   height: 527px;
+   background-color: white;
+   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+   border-radius: 10px;
+   overflow: hidden;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: space-around;
+}
+
+.logout-middle {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.logout-circle {
+   width: 172px;
+   height: 172px;
+   left: 634px;
+   top: 298px;
+   background: #ffe1e5;
+   border-radius: 50%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.logout-title {
+   font-family: 'Inter';
+   font-style: normal;
+   font-weight: 700;
+   font-size: 34px;
+   line-height: 41px;
+   color: #000000;
+   margin-bottom: 30px;
+}
+.logout-confirmation {
+   font-family: 'Inter';
+   font-style: normal;
+   font-weight: 400;
+   font-size: 24px;
+   line-height: 29px;
+   text-align: center;
+   width: 334px;
+
+   color: #212529;
+}
+
+.bottom-logout {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+}
+
+.cancel-btn {
+   background-color: transparent;
+   border: 1px solid #212529;
+   width: 150px;
+   height: 56px;
+   border-radius: 5px;
+   margin-right: 15px;
+}
+.out-btn {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   background: #e2001d;
+   border-radius: 5px;
+   border: 1px solid #e2001d;
+   width: 150px;
+   height: 56px;
+   margin-right: 15px;
+}

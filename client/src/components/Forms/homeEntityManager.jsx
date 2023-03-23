@@ -90,6 +90,7 @@ function HomeEntityManager({ step }) {
                }}
             >
                <TextInputComponent
+                  errorText={{ error: true, message: 'This field is required' }}
                   onChange={(e) => console.log(e)}
                   placeholder="Corporate name"
                   label="Corporate name"

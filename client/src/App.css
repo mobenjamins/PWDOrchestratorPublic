@@ -1,66 +1,59 @@
 @font-face {
-  font-family: 'Inter';
-  src: url('./assets//fonts/Inter/static/Inter-Regular.ttf') format('truetype'),
-       url('./assets/fonts/Inter/static/Inter-Bold.ttf') format('woff'),
-       url('./assets/fonts/Inter/static/Inter-Medium.ttf') format('woff2'),
-        url('./assets/fonts/Inter/static/Inter-SemiBold.ttf') format('woff2'),
-        url('./assets/fonts/Inter/static/Inter-Light.ttf') format('woff2'),
-        url('./assets/fonts/Inter/static/Inter-Thin.ttf') format('woff2'),
-        url('./assets/fonts/Inter/static/Inter-ExtraLight.ttf') format('woff2'),
-        url('./assets/fonts/Inter/static/Inter-ExtraBold.ttf') format('woff2'),
-        url('./assets/fonts/Inter/static/Inter-Black.ttf') format('woff2');
-  font-weight: bolder;
-  font-style: normal;
+   font-family: 'Inter';
+   src: url('./assets//fonts/Inter/static/Inter-Regular.ttf') format('truetype'), url('./assets/fonts/Inter/static/Inter-Bold.ttf') format('woff'),
+      url('./assets/fonts/Inter/static/Inter-Medium.ttf') format('woff2'), url('./assets/fonts/Inter/static/Inter-SemiBold.ttf') format('woff2'),
+      url('./assets/fonts/Inter/static/Inter-Light.ttf') format('woff2'), url('./assets/fonts/Inter/static/Inter-Thin.ttf') format('woff2'),
+      url('./assets/fonts/Inter/static/Inter-ExtraLight.ttf') format('woff2'), url('./assets/fonts/Inter/static/Inter-ExtraBold.ttf') format('woff2'),
+      url('./assets/fonts/Inter/static/Inter-Black.ttf') format('woff2');
+   font-weight: bolder;
+   font-style: normal;
 }
-
-
-
 
 #root {
-  margin: 0px;
-  padding: 0px;
-  font-family: "Inter", "Montserrat", sans-serif;
-  height: 100%;
-  width: 100%;
+   margin: 0px;
+   padding: 0px;
+   font-family: 'Inter', 'Montserrat', sans-serif;
+   height: 100%;
+   width: 100%;
 }
 
-.App{
-  width: 100%;
+.App {
+   width: 100%;
 }
 
-.body-wrapper{
-  background-color: #F1F5FB;
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  height: auto;
-  min-height: 89.1vh;
+.body-wrapper {
+   background-color: #f1f5fb;
+   display: flex;
+   flex-direction: row;
+   width: 100%;
+   height: auto;
+   min-height: 89.1vh;
 }
-.right-section{
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  margin-right: 35px;
-}
-
-.video-modal{
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5); 
-  z-index: 9999;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.right-section {
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+   margin-right: 35px;
 }
 
-.video-wrapper{
-  width: 65vw;
-  height: 70vh;
-  background-color: white;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-  overflow: hidden;
+.video-modal {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100vw;
+   height: 100vh;
+   background-color: rgba(0, 0, 0, 0.8);
+   z-index: 9999;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.video-wrapper {
+   width: 65vw;
+   height: 70vh;
+   background-color: white;
+   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+   border-radius: 10px;
+   overflow: hidden;
 }

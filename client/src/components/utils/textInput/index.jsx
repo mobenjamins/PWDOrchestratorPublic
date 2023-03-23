@@ -84,7 +84,14 @@ function TextInputComponent({ onChange, label, placeholder, defaultValue, style,
                )}
             </div>
          </div>
-         <div className="standard-input" style={{ ...style }}>
+         <div
+            className="standard-input"
+            style={{
+               ...style,
+               backgroundColor: (errorText && errorText.error) || (errorText && errorText.message) ? '#FFE1E5' : 'initial',
+               borderColor: (errorText && errorText.error) || (errorText && errorText.message) ? '#E2001D' : 'initial'
+            }}
+         >
             <input
                disabled={disabled}
                style={{ color: defaultValue ? '#000000' : 'inherit' }}
