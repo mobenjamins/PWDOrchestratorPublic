@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
    showToast: {},
    showVideoModal: false,
-   showLogoutModal: true,
+   showLogoutModal: false,
    videoUrl: ''
 };
 

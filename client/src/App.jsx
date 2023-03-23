@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 
 import Home from './pages/home';
 import Admin from './pages/admin/admin';
+import Account from './pages/account/index';
 import Header from './components/header';
 import VideoModal from './components/videomodal';
 import LogoutModal from './components/logoutmodal';
@@ -18,6 +19,7 @@ function App() {
          <Routes>
             <Route exact path="/" element={<Home />} />
             <Route path="/admin" element={<Admin />} />
+            <Route path="/account" element={<Account />} />
 
             {/* <Route component={NotFound} /> */}
          </Routes>
