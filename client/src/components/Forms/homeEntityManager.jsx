@@ -100,9 +100,19 @@ function HomeEntityManager({ step }) {
                   }}
                />
                <TextInputComponent onChange={(e) => console.log(e)} placeholder="Address" label="Address" />
-               <DropdownComponent onChange={(value) => console.log('Country ', value)} options={countries} label="Country of birth" />
+               <DropdownComponent
+                  style={{ width: '440px' }}
+                  onChange={(value) => console.log('Country ', value)}
+                  options={countries}
+                  label="Country of birth"
+               />
                <TextInputComponent onChange={(e) => console.log(e)} placeholder="Post code" label="PostCode" />
-               <DropdownComponent onChange={(value) => console.log('Town / city ', value)} options={countries} label="Town / city" />
+               <DropdownComponent
+                  style={{ width: '440px' }}
+                  onChange={(value) => console.log('Town / city ', value)}
+                  options={countries}
+                  label="Town / city"
+               />
                <TextInputComponent onChange={(e) => console.log(e)} placeholder="Address line 2" label="Address line 2" />
                <TextInputComponent onChange={(e) => console.log(e)} placeholder="phone number" label="Telephone number" />
                <TextInputComponent
@@ -114,6 +124,7 @@ function HomeEntityManager({ step }) {
                      videoUrl: 'https://www.youtube.com/embed/4NKanx3JEP4?controls=0&modestbranding=1&showinfo=0&iv_load_policy=3'
                   }}
                />
+               <div className="pseudo"></div>
             </div>
          </div>
       );
@@ -175,12 +186,18 @@ function HomeEntityManager({ step }) {
                <TextInputComponent onChange={(e) => console.log(e)} placeholder="First name" label="First name" />
                <TextInputComponent onChange={(e) => console.log(e)} placeholder="Date of birth" label="Date of birth" />
                <DropdownComponent
+                  style={{ width: '440px' }}
                   onChange={(value) => console.log('Town / City of birth ', value)}
                   options={countries}
                   label="Town / City of birth"
                />
                <TextInputComponent onChange={(e) => console.log(e)} placeholder="Email" label="Town / City of birth" />
-               <DropdownComponent onChange={(value) => console.log('Country ', value)} options={countries} label="Country of birth" />
+               <DropdownComponent
+                  style={{ width: '440px' }}
+                  onChange={(value) => console.log('Country ', value)}
+                  options={countries}
+                  label="Country of birth"
+               />
             </div>
          </div>
       );

@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import '../../App.css';
 import './style.css';
-import lockIcon from '../../assets/lock-icon.png';
-import accountIcon from '../../assets/lock-icon.png';
-import deleteIcon from '../../assets/delete-icon.png';
 import { AccountSvgIcon, DeleteIcon, LockIcon } from './account-svg';
-import { DeleteAccount, ChangePassword, EditAccount } from './components';
+import EditAccount from './components/editacount.jsx';
+import ChangePassword from './components/changePassWord.jsx';
+import DeleteAccount from './components/deleteAccount.jsx';
 
 function Account() {
-   const [active, setActive] = useState({first: true});
+   const [active, setActive] = useState({ first: true });
 
    const onNavHandler = (nav) => {
       setActive((prev) => {
@@ -21,15 +20,15 @@ function Account() {
       <div className="account-wrapper">
          <div className="nav-banner">
             <div className={`banner-item ${active.first ? 'banner-active' : ''}`} onClick={() => onNavHandler('first')}>
-               <AccountSvgIcon fill="#727272" />
+               <AccountSvgIcon fill={active.first ? 'white' : '#727272'} />
                <div className="banner-text">Edit Your Account</div>
             </div>
             <div className={`banner-item ${active.second ? 'banner-active' : ''}`} onClick={() => onNavHandler('second')}>
-               <LockIcon fill="#727272" />
+               <LockIcon fill={active.second ? 'white' : '#727272'} />
                <div className="banner-text">Change Your Password</div>
             </div>
             <div className={`banner-item ${active.third ? 'banner-active' : ''}`} onClick={() => onNavHandler('third')}>
-               <DeleteIcon fill={active ? 'white' : '#727272'} />
+               <DeleteIcon fill={active.third ? 'white' : '#727272'} />
                <div className="banner-text">Delete Your Account</div>
             </div>
          </div>

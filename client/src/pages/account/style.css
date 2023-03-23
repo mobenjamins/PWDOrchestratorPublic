@@ -15,6 +15,7 @@
    display: flex;
    flex-direction: row;
    justify-content: center;
+   align-items: center;
    width: 100%;
    padding: 25px;
    color: #727272;
@@ -40,15 +41,74 @@
    border-radius: 10px;
    margin-left: 80px;
    margin-right: 80px;
-   padding: 30px;
+   padding: 50px;
    min-height: 60vh;
 }
 .body-title {
    font-family: 'Inter';
    font-style: normal;
    font-weight: 700;
-   font-size: 34px;
+   font-size: 30px;
    line-height: 41px;
 
    color: #000000;
+}
+.body-explanation {
+   font-family: 'Inter';
+   font-style: normal;
+   font-weight: 400;
+   font-size: 20px;
+   line-height: 29px;
+
+   color: #212529;
+   margin-top: 20px;
+   margin-right: 200px;
+}
+
+.marginate {
+   margin-top: 50px;
+}
+
+.body-btns-Wrapper {
+   display: flex;
+   flex-direction: row;
+   color: #70737a;
+   margin-top: 80px;
+}
+
+.body-btn {
+   padding: 20px;
+   border: 1.5px solid #70737a;
+   width: 300px;
+   border-radius: 10px;
+   margin-right: 50px;
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   font-family: 'Poppins';
+   font-style: normal;
+   font-weight: 500;
+   font-size: 22px;
+}
+.body-btn:hover {
+   cursor: pointer;
+   transform: scale(1.02);
+   transition: ease-in-out;
+}
+.body-btn-coloured {
+   background: #5aee95;
+   border: 1.5px solid #5aee95;
+   box-shadow: 0px 14px 30px rgba(90, 238, 149, 0.4);
+   border-radius: 10px;
+   line-height: 33px;
+   color: #ffffff;
+}
+.redbg {
+   background: #e2001d;
+   border: 1.5px solid #e2001d;
+   box-shadow: 0px 14px 30px rgba(226, 0, 29, 0.4);
+   border-radius: 10px;
+   line-height: 33px;
+   color: #ffffff;
 }

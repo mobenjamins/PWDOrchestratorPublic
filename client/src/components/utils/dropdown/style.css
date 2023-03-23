@@ -14,7 +14,7 @@
    margin-bottom: 10px;
 }
 
-.standard-select {
+.standard-select2 {
    background: #f1f5fb;
    border: 1px solid #cad9ee;
    border-radius: 10px;
@@ -32,7 +32,7 @@
    background-repeat: no-repeat;
    background-position: 95% 50%;
    padding: 0px 0px;
-   max-width: 435px;
+   /* max-width: 435px; */
 }
 .standard-select:focus {
    outline: none;

@@ -32,7 +32,8 @@ function FormTitle({ title, infoPopup }) {
          style={{
             display: 'flex',
             flexDirection: 'row',
-            alignItems: 'center'
+            alignItems: 'center',
+            marginTop: '10px'
             // position: 'relative'
          }}
       >

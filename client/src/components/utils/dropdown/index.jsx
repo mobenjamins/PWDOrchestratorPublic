@@ -14,7 +14,7 @@ function DropdownComponent({ options, onChange, label, style }) {
    return (
       <div className="input-section" style={style}>
          <div className="standard-input-label">{label}</div>
-         <div className="standard-select" style={style}>
+         <div className="standard-select2">
             <select value={selectedValue} className="standard-input-select" onChange={handleSelectChange}>
                {options.map((option, index) => {
                   return (

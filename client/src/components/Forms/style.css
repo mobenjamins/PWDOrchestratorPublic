@@ -9,6 +9,10 @@
    flex-shrink: 0;
 }
 
+.pseudo {
+   flex: 0 0 31.33%;
+}
+
 .QuestionSection-wrapper > :first-child {
    align-self: flex-start;
 }

@@ -28,9 +28,20 @@ function EmployeeForm({ step }) {
                   <TextInputComponent onChange={(e) => console.log(e)} placeholder="Doe" label="Last name" />
                   <TextInputComponent onChange={(e) => console.log(e)} placeholder="John" label="First name" />
                   <TextInputComponent onChange={(e) => console.log(e)} placeholder="Date of birth" label="13 Jun 1990" />
-                  <DropdownComponent onChange={(value) => console.log('Town / city ', value)} options={countries} label="Town / city" />
-                  <DropdownComponent onChange={(value) => console.log('Country ', value)} options={countries} label="Country of birth" />
+                  <DropdownComponent
+                     style={{ width: '440px' }}
+                     onChange={(value) => console.log('Town / city ', value)}
+                     options={countries}
+                     label="Town / city"
+                  />
+                  <DropdownComponent
+                     style={{ width: '440px' }}
+                     onChange={(value) => console.log('Country ', value)}
+                     options={countries}
+                     label="Country of birth"
+                  />
                   <TextInputComponent onChange={(e) => console.log(e)} placeholder="Italy" label="Nationality" />
+                  <div className="pseudo"></div>
                </div>
             </div>
             {addressInformation()}
@@ -52,10 +63,21 @@ function EmployeeForm({ step }) {
                }}
             >
                <TextInputComponent onChange={(e) => console.log(e)} placeholder="Address" label="Address" />
-               <DropdownComponent onChange={(value) => console.log('Country ', value)} options={countries} label="Country" />
+               <DropdownComponent
+                  style={{ width: '440px' }}
+                  onChange={(value) => console.log('Country ', value)}
+                  options={countries}
+                  label="Country"
+               />
                <TextInputComponent onChange={(e) => console.log(e)} placeholder="Post code" label="PostCode" />
-               <DropdownComponent onChange={(value) => console.log('Town / city ', value)} options={countries} label="Town / city" />
+               <DropdownComponent
+                  style={{ width: '440px' }}
+                  onChange={(value) => console.log('Town / city ', value)}
+                  options={countries}
+                  label="Town / city"
+               />
                <TextInputComponent onChange={(e) => console.log(e)} placeholder="Address line 2" label="Address line 2" />
+               <div className="pseudo"></div>
             </div>
          </div>
       );

@@ -82,9 +82,9 @@ export const sectionsList = [
       ]
    },
    {
-      title: 'Employee sjfhhhjbfsjhbhbsf  fsh jsfjh',
+      title: 'Employee',
       id: 'employee',
-      value: 'Employee in the susdhjbjvhs uvbfshvbshjf',
+      value: 'Employee',
       infoPopUp: {
          show: true,
          persona: 'Employee',

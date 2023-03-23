@@ -188,6 +188,7 @@ function HostEntityManager({ step }) {
                }}
             >
                <DropdownComponent
+                  style={{ width: '440px' }}
                   onChange={(value) => onInPutHandler(value, 'identityOfHostCompany', 'country')}
                   options={countries}
                   label="Country"
@@ -222,6 +223,7 @@ function HostEntityManager({ step }) {
                   defaultValue={hostForm.identityOfHostCompany.postCode}
                />
                <DropdownComponent
+                  style={{ width: '440px' }}
                   onChange={(value) => onInPutHandler(value, 'identityOfHostCompany', 'city')}
                   options={countries}
                   label="Town / city"
@@ -239,34 +241,7 @@ function HostEntityManager({ step }) {
                   label="Email"
                   defaultValue={hostForm.identityOfHostCompany.email}
                />
-            </div>
-         </div>
-      );
-   };
-
-   const representativeSelect = () => {
-      return (
-         <div className="question-section">
-            {/* <div className="Subsection-title">Travel expenses </div> */}
-            <div
-               style={{
-                  display: 'flex',
-                  flexDirection: 'row',
-                  flexWrap: 'wrap',
-                  justifyContent: 'space-between',
-                  alignItems: 'flex-start',
-                  width: '100%'
-               }}
-            >
-               <div className="question-section">
-                  <DropdownComponent
-                     onChange={(value) => onInPutHandler(value, 'identityOfHostCompany', 'city')}
-                     options={representativeOptions}
-                     label="Please specify the duties of the company's representative for this service."
-                     defaultValue={hostForm.identityOfHostCompany.city}
-                  />
-               </div>
-               {/* <TextInputComponent onChange={(e) => console.log(e)} placeholder="Travel Expenses Budget" label="Travel Expenses Budget" /> */}
+               <div className="pseudo"></div>
             </div>
          </div>
       );
@@ -293,18 +268,13 @@ function HostEntityManager({ step }) {
                      alignItems: 'flex-start'
                   }}
                >
-                  {representativeSelect()}
-                  {/* <TextInputComponent
-                     onChange={(value) => onInPutHandler(value, 'representativeInHostCountry', 'dutiesOFrepresentative')}
-                     placeholder="Please specify..."
+                  <DropdownComponent
+                     style={{ width: '100%' }}
+                     onChange={(value) => onInPutHandler(value, 'identityOfHostCompany', 'city')}
+                     options={representativeOptions}
                      label="Please specify the duties of the company's representative for this service."
-                     style={{ width: '98%' }}
-                     defaultValue={hostForm.representativeInHostCountry.name}
-                     infoPopup={{
-                        explanation: 'Free designation of your declaration / Certificate to help you find it easily in your dashboard',
-                        videoUrl: 'https://www.youtube.com/watch?v=9bZkp7q19f0'
-                     }}
-                  /> */}
+                     defaultValue={hostForm.identityOfHostCompany.city}
+                  />
                   <TextInputComponent
                      infoPopup={{
                         description:
@@ -336,6 +306,7 @@ function HostEntityManager({ step }) {
                      defaultValue={hostForm.representativeInHostCountry.postCode}
                   />
                   <DropdownComponent
+                     style={{ width: '440px' }}
                      onChange={(value) => onInPutHandler(value, 'representativeInHostCountry', 'city')}
                      options={countries}
                      label="Town / city"
@@ -347,6 +318,7 @@ function HostEntityManager({ step }) {
                      label="Address line 2"
                      defaultValue={hostForm.representativeInHostCountry.addressline2}
                   />
+                  <div className="pseudo"></div>
                </div>
             </div>
             {contactMeans()}
@@ -386,6 +358,7 @@ function HostEntityManager({ step }) {
                   label="Email"
                   defaultValue={hostForm.meansOfContact.email}
                />
+               <div className="pseudo"></div>
             </div>
          </div>
       );
@@ -492,6 +465,7 @@ function HostEntityManager({ step }) {
                   defaultValue={hostForm.datesAndPlace.postCode}
                />
                <DropdownComponent
+                  style={{ width: '440px' }}
                   onChange={(e) => onInPutHandler(e, 'datesAndPlace', 'city')}
                   options={countries}
                   label="Town / city"
@@ -525,6 +499,7 @@ function HostEntityManager({ step }) {
                   label="Address type"
                   defaultValue={hostForm.datesAndPlace.numberOfRooms}
                />
+               <div className="pseudo"></div>
             </div>
          </div>
       );
@@ -585,6 +560,7 @@ function HostEntityManager({ step }) {
                   />
                )}
                <DropdownComponent
+                  style={{ width: '440px' }}
                   onChange={(e) => onInPutHandler(e.value, 'infoAboutService', 'useOfHazardousProcess')}
                   options={[
                      { value: 'true', title: 'Yes' },
@@ -631,6 +607,7 @@ function HostEntityManager({ step }) {
                   label="Other types of working hour arrangemnets"
                   defaultValue={hostForm.infoAboutService.otherWorkArrangements}
                />
+               <div className="pseudo"></div>
             </div>
          </div>
       );
