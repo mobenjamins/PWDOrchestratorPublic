@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { useSelector, useDispatch } from 'react-redux';
 import moment from 'moment';
@@ -27,11 +27,21 @@ const MenuProps = {
    }
 };
 
-function DatePickerComponent({ style, label, onChange, infoPopup }) {
+function DatePickerComponent({ style, label, onChange, infoPopup, defaultValue }) {
    const [selectedDate, setSelectedDate] = useState('');
    const [showInfoPopUp, setShowInfoPopUp] = useState({});
    const dispatch = useDispatch();
    const ref = useRef();
+
+   useEffect(() => {
+      console.log('defaultValue', {
+         defaultValue,
+         converted: new Date(defaultValue.value),
+         converted2: moment(defaultValue.rawDate)
+      });
+
+      setSelectedDate(defaultValue.rawDate);
+   }, [defaultValue]);
 
    function handleClickOutside() {
       console.log('Clicked outside the element');
@@ -50,10 +60,9 @@ function DatePickerComponent({ style, label, onChange, infoPopup }) {
    };
 
    const onChangeHandler = (event) => {
-      const data = moment(event).format('D MMMM YYYY');
-      setSelectedDate(data);
-      console.log('event', data);
-      onChange(data);
+      const data = moment(event.$d).format('D MMMM YYYY');
+      setSelectedDate(event);
+      onChange(event);
    };
    const onPlayVideoHandler = () => {
       dispatch(setShowVideoModal({ value: true, videoUrl: addAutoplayToYoutubeUrl(infoPopup.videoUrl) }));
@@ -65,8 +74,8 @@ function DatePickerComponent({ style, label, onChange, infoPopup }) {
             {label}
          </div>
          <DatePicker
-            // value={selectedDate}
-            format="DD/MM/YYYY"
+            value={selectedDate}
+            // format="DD/MM/YYYY"
             onChange={(newValue) => onChangeHandler(newValue)}
             sx={{
                m: 0,

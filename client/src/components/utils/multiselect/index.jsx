@@ -25,8 +25,8 @@ const MenuProps = {
    }
 };
 
-function MultiSelectDropdownComponent({ style, options, label, onChange, infoPopup }) {
-   const [selectedSection, setSelectedSection] = useState([]);
+function MultiSelectDropdownComponent({ style, options, label, onChange, infoPopup, defaultValue }) {
+   const [selectedSection, setSelectedSection] = useState(defaultValue ? defaultValue : []);
    const [showInfoPopUp, setShowInfoPopUp] = useState({});
    const dispatch = useDispatch();
    const ref = useRef();
@@ -156,7 +156,8 @@ MultiSelectDropdownComponent.propTypes = {
    onChange: PropTypes.func.isRequired,
    style: PropTypes.object,
    options: PropTypes.array.isRequired,
-   label: PropTypes.string.isRequired
+   label: PropTypes.string.isRequired,
+   defaultValue: PropTypes.array
 };
 
 export default MultiSelectDropdownComponent;

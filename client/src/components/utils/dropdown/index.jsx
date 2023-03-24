@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './style.css';
 
-function DropdownComponent({ options, onChange, label, style }) {
-   const [selectedValue, setSelectedValue] = useState(options[0]?.value);
+function DropdownComponent({ options, onChange, label, style, defaultValue }) {
+   const [selectedValue, setSelectedValue] = useState(defaultValue ? defaultValue : options[0]?.value);
 
    const handleSelectChange = (event) => {
       setSelectedValue(event.target.value);
@@ -32,7 +32,8 @@ function DropdownComponent({ options, onChange, label, style }) {
 DropdownComponent.propTypes = {
    options: PropTypes.array.isRequired,
    onChange: PropTypes.func.isRequired,
-   label: PropTypes.string.isRequired
+   label: PropTypes.string.isRequired,
+   defaultValue: PropTypes.any
 };
 
 export default DropdownComponent;
