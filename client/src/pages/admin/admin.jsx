@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import '../../App.css';
 import './style.css';
 import TextInputComponent from '../../components/utils/textInput';
@@ -6,6 +7,7 @@ import DropdownComponent from '../../components/utils/dropdown';
 import { countries } from '../../components/Forms/helpers';
 import { subsectionsList, sectionsList, booleanOptions, sampleUserAsignMent } from './helpers';
 import MultiSelectDropdownComponent from '../../components/utils/multiselect';
+import DatePickerComponent from '../../components/utils/datepicker';
 
 function Admin() {
    const [selectedSection, setSelectedSection] = useState([]);
@@ -54,6 +56,10 @@ function Admin() {
    }, [selectedSection]);
 
    const onChangeText = (value, key) => {
+      console.log({
+         value,
+         key
+      });
       setFormData((prevState) => {
          return {
             ...prevState,
@@ -82,6 +88,13 @@ function Admin() {
                   alignItems: 'flex-start'
                }}
             >
+               <DatePickerComponent
+                  onChange={(value) => console.log(value)}
+                  infoPopup={{
+                     explanation: 'Section of the declaration to be filled in by the entity'
+                  }}
+                  label="Date Issued"
+               />
                <MultiSelectDropdownComponent
                   infoPopup={{
                      explanation: 'Section of the declaration to be filled in by the entity'
@@ -113,7 +126,7 @@ function Admin() {
                      explanation: 'Email of the person responsible for the declaration'
                   }}
                />
-               <TextInputComponent
+               <DatePickerComponent
                   style={{ minWidth: '350px' }}
                   onChange={(e) => onChangeText(e, 'dateIssued')}
                   placeholder="7 April 2023"
@@ -122,7 +135,16 @@ function Admin() {
                      explanation: "Date when the user's declaration was issued"
                   }}
                />
-               <TextInputComponent
+               {/* <TextInputComponent
+                  style={{ minWidth: '350px' }}
+                  onChange={(e) => onChangeText(e, 'dateIssued')}
+                  placeholder="7 April 2023"
+                  label="Date issued"
+                  infoPopup={{
+                     explanation: "Date when the user's declaration was issued"
+                  }}
+               /> */}
+               <DatePickerComponent
                   style={{ minWidth: '350px' }}
                   onChange={(e) => onChangeText(e, 'automatedReminder1')}
                   placeholder="7 April 2023"
@@ -131,7 +153,24 @@ function Admin() {
                      explanation: "Schedule when the reminder will be sent to the user's email"
                   }}
                />
-               <TextInputComponent
+               {/* <TextInputComponent
+                  style={{ minWidth: '350px' }}
+                  onChange={(e) => onChangeText(e, 'automatedReminder1')}
+                  placeholder="7 April 2023"
+                  label="Automated Reminder 1"
+                  infoPopup={{
+                     explanation: "Schedule when the reminder will be sent to the user's email"
+                  }}
+               /> */}
+               <DatePickerComponent
+                  style={{ minWidth: '350px' }}
+                  onChange={(value) => onChangeText(value, 'automatedReminder2')}
+                  infoPopup={{
+                     explanation: "Schedule when the 2nd reminder will be sent to the user's email"
+                  }}
+                  label="Automated Reminder 2"
+               />
+               {/* <TextInputComponent
                   style={{ minWidth: '350px' }}
                   onChange={(e) => onChangeText(e, 'automatedReminder2')}
                   placeholder="7 April 2023"
@@ -139,7 +178,7 @@ function Admin() {
                   infoPopup={{
                      explanation: "Schedule when the 2nd reminder will be sent to the user's email"
                   }}
-               />
+               /> */}
                <DropdownComponent
                   style={{ width: '385px' }}
                   onChange={(value) => onChangeText(value.value, 'manualReminder')}
