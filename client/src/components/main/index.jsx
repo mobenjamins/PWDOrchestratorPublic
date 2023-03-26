@@ -4,7 +4,7 @@ import './style.css';
 import BackIcon from '../../assets/back-icon.png';
 import EmployeeForm from '../Forms/employee';
 import HomeEntityManager from '../Forms/homeEntityManager';
-import HostEntityManager from '../Forms/hostEntityManager';
+import HostEntityManager from '../Forms/hostEntity';
 
 function MainSection({ activeForm, setStep, step }) {
    const nextStepHandler = () => {

@@ -129,3 +129,68 @@ export const ActivityLevelOneOptions = [
    { label: 'ACTIVITIES OF HOUSEHOLDS AS EMPLOYERS, UNDIFFERENTIATED GOODS AND SERVICES PRODUCING ACTIVITES OF HOUSEHOLDS FOR OWN USE', value: 19 },
    { label: 'ACTIVITIES OF EXTRATERRITORIAL ORGANISATIONS AND BODIES', value: 20 }
 ];
+
+export const occupations = [
+   {
+      label: 'AGRICULTURE, FORESTRY AND FISHING',
+      subCategoryLevel1: [
+         {
+            label: 'Forestry and logging',
+            subCategoryLevel2: [
+               {
+                  label: 'Logging',
+                  subCategoryLevel3: ['Logging']
+               },
+               {
+                  label: 'Silviculture and other forestry activities',
+                  subCategoryLevel3: ['Silviculture and other forestry activities']
+               }
+            ]
+         },
+         {
+            label: 'Fishing and aquaculture',
+            subCategoryLevel2: [
+               {
+                  label: 'Fishing',
+                  subCategoryLevel3: ['Freshwater fishing', 'Marine fishing']
+               },
+               {
+                  label: 'Aquaculture',
+                  subCategoryLevel3: ['Marine aquaculture', 'Freshwater aquaculture']
+               }
+            ]
+         }
+      ]
+   },
+   {
+      label: 'MINING AND QUARRYING',
+      subCategoryLevel1: [
+         {
+            label: 'Mining of coal and lignite',
+            subCategoryLevel2: [
+               {
+                  label: 'Mining of hard coal',
+                  subCategoryLevel3: ['Mining of hard coal']
+               },
+               {
+                  label: 'Mining of lignite',
+                  subCategoryLevel3: ['Mining of lignite']
+               }
+            ]
+         },
+         {
+            label: 'Extraction of crude petroleum and natural gas',
+            subCategoryLevel2: [
+               {
+                  label: 'Extraction of crude petroleum',
+                  subCategoryLevel3: ['Extraction of crude petroleum']
+               },
+               {
+                  label: 'Extraction of natural gas',
+                  subCategoryLevel3: ['Extraction of natural gas']
+               }
+            ]
+         }
+      ]
+   }
+];
