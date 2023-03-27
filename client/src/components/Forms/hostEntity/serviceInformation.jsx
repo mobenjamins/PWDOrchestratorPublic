@@ -49,6 +49,31 @@ function ServiceInformation({ step }) {
       activityLevelFour: ''
    });
 
+   const [level1default, setLevel1Default] = useState('');
+   const [level2default, setLevel2Default] = useState('');
+   const [level3default, setLevel3Default] = useState('');
+   const [level4default, setLevel4Default] = useState('');
+
+   const [levelTwoOptions, setLevelTwoOptions] = useState([]);
+   const [levelThreeOptions, setLevelThreeOptions] = useState([]);
+   const [levelFourOptions, setLevelFourOptions] = useState([]);
+
+   useEffect(() => {
+      console.log(activityLevel);
+      if (activityLevel.activityLevelOne !== '') {
+         setLevel1Default(activityLevel.activityLevelOne);
+      }
+      if (activityLevel.activityLevelTwo !== '') {
+         setLevel2Default(activityLevel.activityLevelTwo);
+      }
+      if (activityLevel.activityLevelThree !== '') {
+         setLevel3Default(activityLevel.activityLevelThree);
+      }
+      if (activityLevel.activityLevelFour !== '') {
+         setLevel4Default(activityLevel.activityLevelFour);
+      }
+   }, [activityLevel]);
+
    const onChangeSiretHandler = async (siret, section, inputKey) => {
       try {
          const response = await sirenAPI.get(`/siret/${siret}`);
@@ -110,6 +135,22 @@ function ServiceInformation({ step }) {
    const onSearchSelectChange = (value, level) => {
       console.log(value, level);
 
+      if (level === 'activityLevelOne') {
+         setLevelTwoOptions(value.subCategoryLevel1);
+         setLevelThreeOptions([]);
+         setLevelFourOptions([]);
+         setLevel2Default('');
+      } else if (level === 'activityLevelTwo') {
+         setLevelThreeOptions(value.subCategoryLevel2);
+         setLevelFourOptions([]);
+         setLevel3Default('');
+      } else if (level === 'activityLevelThree') {
+         setLevelFourOptions(value.subCategoryLevel3);
+         setLevel4Default('');
+      }
+
+      // setLevelTwoOptions(value.subCategoryLevel1);
+
       setActivityLevel({
          ...activityLevel,
          [level]: value
@@ -118,11 +159,42 @@ function ServiceInformation({ step }) {
 
    const onSearchOccupation = (value) => {
       console.log(value);
-
-      // setActivityLevel({
-      //    ...activityLevel,
-      //    [level]: value
-      // });
+      if (value === '') {
+         setActivityLevel(() => {
+            return {
+               activityLevelOne: '',
+               activityLevelTwo: '',
+               activityLevelThree: '',
+               activityLevelFour: ''
+            };
+         });
+         return;
+      }
+      console.log('options', occupations);
+      occupations.map((Level1, index1) => {
+         return Level1.subCategoryLevel1.map((level2, index2) => {
+            return level2.subCategoryLevel2.map((level3, index3) => {
+               const includes = level3.subCategoryLevel3.some((item) => item.toLowerCase().includes(value));
+               if (includes) {
+                  setActivityLevel((prev) => {
+                     return {
+                        ...prev,
+                        activityLevelOne: occupations[index1].label,
+                        activityLevelTwo: occupations[index1].subCategoryLevel1[index2].label,
+                        activityLevelThree: occupations[index1].subCategoryLevel1[index2].subCategoryLevel2[index3].label,
+                        activityLevelFour: occupations[index1].subCategoryLevel1[index2].subCategoryLevel2[index3].subCategoryLevel3[0]
+                     };
+                  });
+                  setLevelTwoOptions(occupations[index1].subCategoryLevel1);
+                  setLevelThreeOptions(occupations[index1].subCategoryLevel1[index2].subCategoryLevel2);
+                  setLevelFourOptions(occupations[index1].subCategoryLevel1[index2].subCategoryLevel2[index3].subCategoryLevel3);
+               } else {
+                  console.log('Not found');
+               }
+               return includes;
+            });
+         });
+      });
    };
 
    const onInPutHandler = (value, section, inputKey) => {
@@ -194,40 +266,39 @@ function ServiceInformation({ step }) {
                style={{ width: '97.5%' }}
                onChange={(e) => onSearchOccupation(e)}
                placeholder="Search here or select below"
-               label="Main activity (4 level)"
-               // defaultValue={hostForm.infoAboutService.workStartTime}
+               label="Search for occupation"
             />
             <AutoCompleteDropdownComponent
+               defaultValue={level1default}
                disabled={false}
                onChange={(e) => onSearchSelectChange(e, 'activityLevelOne')}
                options={occupations}
-               label="Main activity (4 level) "
+               label="Main activity "
                style={{ width: '100%', marginLeft: '30px', marginRight: '40px' }}
-               // defaultValue={''}
             />
             <AutoCompleteDropdownComponent
+               defaultValue={level2default ? level2default : ''}
                disabled={activityLevel.activityLevelOne ? false : true}
                onChange={(e) => onSearchSelectChange(e, 'activityLevelTwo')}
-               options={occupations}
-               label="Level two "
+               options={levelTwoOptions}
+               label="Activity Level two "
                style={{ width: '100%', marginLeft: '40px', marginRight: '40px' }}
-               // defaultValue={''}
             />
             <AutoCompleteDropdownComponent
+               defaultValue={level3default}
                disabled={activityLevel.activityLevelTwo ? false : true}
                onChange={(e) => onSearchSelectChange(e, 'activityLevelThree')}
-               options={occupations}
-               label="Level three "
+               options={levelThreeOptions}
+               label="Activity Level three "
                style={{ width: '100%', marginLeft: '50px', marginRight: '50px' }}
-               // defaultValue={''}
             />
             <AutoCompleteDropdownComponent
+               defaultValue={level4default}
                disabled={activityLevel.activityLevelThree ? false : true}
                onChange={(e) => onSearchSelectChange(e, 'activityLevelFour')}
-               options={occupations}
-               label="Level four"
+               options={levelFourOptions}
+               label="Activity Level four"
                style={{ width: '100%', marginLeft: '60px', marginRight: '60px' }}
-               // defaultValue={''}
             />
             <DropdownComponent
                style={{ width: '440px' }}
