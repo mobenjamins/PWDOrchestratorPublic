@@ -276,30 +276,36 @@ function ServiceInformation({ step }) {
                label="Main activity "
                style={{ width: '100%', marginLeft: '30px', marginRight: '40px' }}
             />
-            <AutoCompleteDropdownComponent
-               defaultValue={level2default ? level2default : ''}
-               disabled={activityLevel.activityLevelOne ? false : true}
-               onChange={(e) => onSearchSelectChange(e, 'activityLevelTwo')}
-               options={levelTwoOptions}
-               label="Activity Level two "
-               style={{ width: '100%', marginLeft: '40px', marginRight: '40px' }}
-            />
-            <AutoCompleteDropdownComponent
-               defaultValue={level3default}
-               disabled={activityLevel.activityLevelTwo ? false : true}
-               onChange={(e) => onSearchSelectChange(e, 'activityLevelThree')}
-               options={levelThreeOptions}
-               label="Activity Level three "
-               style={{ width: '100%', marginLeft: '50px', marginRight: '50px' }}
-            />
-            <AutoCompleteDropdownComponent
-               defaultValue={level4default}
-               disabled={activityLevel.activityLevelThree ? false : true}
-               onChange={(e) => onSearchSelectChange(e, 'activityLevelFour')}
-               options={levelFourOptions}
-               label="Activity Level four"
-               style={{ width: '100%', marginLeft: '60px', marginRight: '60px' }}
-            />
+            {activityLevel.activityLevelOne && (
+               <AutoCompleteDropdownComponent
+                  defaultValue={level2default ? level2default : ''}
+                  disabled={activityLevel.activityLevelOne ? false : true}
+                  onChange={(e) => onSearchSelectChange(e, 'activityLevelTwo')}
+                  options={levelTwoOptions}
+                  label="Activity Level two "
+                  style={{ width: '100%', marginLeft: '40px', marginRight: '40px' }}
+               />
+            )}
+            {activityLevel.activityLevelTwo && (
+               <AutoCompleteDropdownComponent
+                  defaultValue={level3default}
+                  disabled={activityLevel.activityLevelTwo ? false : true}
+                  onChange={(e) => onSearchSelectChange(e, 'activityLevelThree')}
+                  options={levelThreeOptions}
+                  label="Activity Level three "
+                  style={{ width: '100%', marginLeft: '50px', marginRight: '50px' }}
+               />
+            )}
+            {activityLevel.activityLevelThree && (
+               <AutoCompleteDropdownComponent
+                  defaultValue={level4default}
+                  disabled={activityLevel.activityLevelThree ? false : true}
+                  onChange={(e) => onSearchSelectChange(e, 'activityLevelFour')}
+                  options={levelFourOptions}
+                  label="Activity Level four"
+                  style={{ width: '100%', marginLeft: '60px', marginRight: '60px' }}
+               />
+            )}
             <DropdownComponent
                style={{ width: '440px' }}
                onChange={(e) => onInPutHandler(e.value, 'infoAboutService', 'useOfHazardousProcess')}

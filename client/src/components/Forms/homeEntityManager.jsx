@@ -5,7 +5,7 @@ import QuestionHeader from '../QuestionSection/header';
 import DropdownComponent from '../utils/dropdown';
 import TextInputComponent from '../utils/textInput';
 import RadioselectComponent from '../utils/radioselect';
-import { countries, allRadioOptions, accomodationExpensesOptions, foodExpensesOptions } from './helpers';
+import { countries, allRadioOptions, accomodationExpensesOptions, foodExpensesOptions, trueFalseoptions } from './helpers';
 import FormTitle from '../formTitle/index';
 
 function HomeEntityManager({ step }) {
@@ -278,8 +278,14 @@ function HomeEntityManager({ step }) {
                   placeholder="ie £300"
                   label="Gross hourly rate of pay applied during the posting (€) "
                />
+               <DropdownComponent
+                  style={{ width: '440px' }}
+                  onChange={(value) => console.log('unable', value)}
+                  options={trueFalseoptions}
+                  label="Unable to provide gross hourly rate?"
+               />
                //TODO: Add a radio button, single
-               <RadioselectComponent item={{ title: 'Unable ?', isSelected: true }} onChange={onRadioHandler} />
+               {/* <RadioselectComponent item={{ title: 'Unable ?', isSelected: true }} onChange={onRadioHandler} /> */}
             </div>
          </div>
       );
@@ -434,34 +440,8 @@ function HomeEntityManager({ step }) {
 
    return (
       <div className="QuestionSection-wrapper">
-         <QuestionHeader title="Home Entity Information" subTitle="Declaration - Mobility of Employee Withing The Same Group - Edition" />
-
-         {/* <div className='input-section'>
-          <div className='standard-input-label'>Name</div>
-          <div className='standard-input'>
-            <input className='input-field' placeholder='Enter your name' />
-            <img src={InfoIcon} className="info-icon" />
-          </div>
-       </div> */}
+         <QuestionHeader title="Home Entity Information" subTitle="Declaration - Mobility of Employee Withing The Same Group" />
          {StepRenderer()}
-
-         {/* <div className='question-section'>
-          <div className='Subsection-title'>Foreign Company</div>
-          <DropdownComponent label="Company Autocompletion" options={dummyOptions} onChange={(e)=>console.log("WORKED ", e)} />
-       </div>
-
-
-       <div className='question-section'>
-          <div className='Subsection-title'>Foreign Company</div>
-          {
-            radioOptions.map((item, index) => {
-              return (
-                <RadioselectComponent item={item} onChange={onRadioHandler} />
-              )
-            }
-            )
-          }
-       </div> */}
       </div>
    );
 }

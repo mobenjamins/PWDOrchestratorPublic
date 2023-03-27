@@ -18,17 +18,33 @@ export const activityLevelOptions = [
 ];
 
 export const countries = [
-   { value: 'kenya', title: 'Kenya' },
-   { value: 'uganda', title: 'Uganda' },
-   { value: 'tanzania', title: 'Tanzania' },
-   { value: 'rwanda', title: 'Rwanda' },
-   { value: 'burundi', title: 'Burundi' },
-   { value: 'somalia', title: 'Somalia' },
-   { value: 'ethiopia', title: 'Ethiopia' },
-   { value: 'sudan', title: 'Sudan' },
-   { value: 'south sudan', title: 'South Sudan' },
-   { value: 'eritrea', title: 'Eritrea' },
-   { value: 'djibouti', title: 'Djibouti' }
+   { value: 'austria', title: 'Austria' },
+   { value: 'belgium', title: 'Belgium' },
+   { value: 'bulgaria', title: 'Bulgaria' },
+   { value: 'croatia', title: 'Croatia' },
+   { value: 'cyprus', title: 'Cyprus' },
+   { value: 'czech republic', title: 'Czech Republic' },
+   { value: 'denmark', title: 'Denmark' },
+   { value: 'estonia', title: 'Estonia' },
+   { value: 'finland', title: 'Finland' },
+   { value: 'france', title: 'France' },
+   { value: 'germany', title: 'Germany' },
+   { value: 'greece', title: 'Greece' },
+   { value: 'hungary', title: 'Hungary' },
+   { value: 'ireland', title: 'Ireland' },
+   { value: 'italy', title: 'Italy' },
+   { value: 'latvia', title: 'Latvia' },
+   { value: 'lithuania', title: 'Lithuania' },
+   { value: 'luxembourg', title: 'Luxembourg' },
+   { value: 'malta', title: 'Malta' },
+   { value: 'netherlands', title: 'Netherlands' },
+   { value: 'poland', title: 'Poland' },
+   { value: 'portugal', title: 'Portugal' },
+   { value: 'romania', title: 'Romania' },
+   { value: 'slovakia', title: 'Slovakia' },
+   { value: 'slovenia', title: 'Slovenia' },
+   { value: 'spain', title: 'Spain' },
+   { value: 'sweden', title: 'Sweden' }
 ];
 
 export const allRadioOptions = [
@@ -193,4 +209,9 @@ export const occupations = [
          }
       ]
    }
+];
+
+export const trueFalseoptions = [
+   { value: 'true', title: 'Yes' },
+   { value: 'false', title: 'No' }
 ];
