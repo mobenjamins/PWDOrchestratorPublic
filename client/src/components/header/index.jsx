@@ -30,7 +30,14 @@ function Header(props) {
       <div className="header-wrapper">
          <div className="left-section">
             <img src={logoImage} className="logo-image" alt="logo" />
-            <div className="brand-name">Posting of Workers in France</div>
+            <div className="brand-name">
+               Posting of Workers in{' '}
+               <select className="country-name clearedSelect">
+                  <option value="france">France</option>
+                  <option value="spain">Spain</option>
+                  <option value="italy">Italy</option>
+               </select>
+            </div>
          </div>
          <div className="nav-list">
             <div className={`navList-item ${activePage === '' ? 'navList-item-active' : ''}`} onClick={() => pageHandler('')}>

@@ -24,7 +24,13 @@ const sideNavElementsTemp = [
       id: 'hostEntity',
       title: 'Host Entity Manager',
       isActive: false,
-      subSections: ['Host Entity Information', 'Representative information', 'Place of document storage', 'Dates and place', 'Service information']
+      subSections: [
+         'Host Entity Information',
+         'Representative information',
+         'Place of document storage',
+         'Dates and place of document storage',
+         'Service information'
+      ]
    },
    {
       id: 'employee',

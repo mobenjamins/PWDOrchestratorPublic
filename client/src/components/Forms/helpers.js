@@ -18,6 +18,7 @@ export const activityLevelOptions = [
 ];
 
 export const countries = [
+   { value: 'select', title: 'Select', disabled: true },
    { value: 'austria', title: 'Austria' },
    { value: 'belgium', title: 'Belgium' },
    { value: 'bulgaria', title: 'Bulgaria' },
