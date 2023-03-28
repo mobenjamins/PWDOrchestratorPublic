@@ -214,7 +214,7 @@ function HostRepresentative({ step }) {
                <TextInputComponent
                   infoPopup={{
                      description:
-                        ' Information about the new comapny  mation the about the new comapny  Info mation the the new comapny  Info mation the about new comapny  Info mation about the new the  Info mation about the new comapny  Info mation about the new comapny  Info mation about the new comapny ',
+                        ' Information about the new company  mation the about the new comapny  Info mation the the new comapny  Info mation the about new comapny  Info mation about the new the  Info mation about the new comapny  Info mation about the new comapny  Info mation about the new comapny ',
                      videoUrl: 'https://www.youtube.com/embed/4NKanx3JEP4?controls=0&modestbranding=1&showinfo=0&iv_load_policy=3'
                   }}
                   onChange={(value) => onInPutHandler(value, 'representativeInHostCountry', 'siret')}

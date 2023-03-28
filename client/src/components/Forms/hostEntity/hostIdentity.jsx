@@ -46,7 +46,7 @@ function HostIdentity({ step }) {
          <FormTitle
             infoPopup={{
                description:
-                  ' Information about the new comapny  mation the about the new comapny  Info mation the the new comapny  Info mation the about new comapny  Info mation about the new the  Info mation about the new comapny  Info mation about the new comapny  Info mation about the new comapny ',
+                  'A representative in the host country is a person who will liaise with the labour authorities in the event of an inspection. The person should have detailed knowledge about the company compliance processes, status of all posted workers, and relevant documentation. The video below includes further guidance.',
                videoUrl: 'https://www.youtube.com/embed/4NKanx3JEP4?controls=0&modestbranding=1&showinfo=0&iv_load_policy=3'
             }}
             title="Identity of the host Company"

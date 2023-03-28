@@ -70,7 +70,7 @@ function FormTitle({ title, infoPopup }) {
                                  allowFullScreen
                               ></iframe>
                               <div className="video-overlay" onClick={() => onPlayVideoHandler(infoPopup.videoUrl)}>
-                                 <img src={playIcon} className="Play-icon" />
+                                 {/* <img src={playIcon} className="Play-icon" /> */}
                               </div>
                            </div>
                         )}

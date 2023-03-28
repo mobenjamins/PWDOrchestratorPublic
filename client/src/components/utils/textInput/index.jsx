@@ -76,7 +76,7 @@ function TextInputComponent({ onChange, label, placeholder, defaultValue, style,
                               allowFullScreen
                            ></iframe>
                            <div className="video-overlay" onClick={() => onPlayVideoHandler()}>
-                              <img src={playIcon} className="Play-icon" />
+                              {/* <img src={playIcon} className="Play-icon" /> */}
                            </div>
                         </div>
                      )}
