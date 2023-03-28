@@ -400,19 +400,13 @@ function HomeEntityManager({ step }) {
                   alignItems: 'flex-start'
                }}
             >
-               <div className="question-section">
-                  <div className="standard-input-label" style={{ marginTop: '20px' }}>
-                     Accommodation Expenses Process{' '}
-                  </div>
-                  {accomodationExpenseOptions.map((item, index) => {
-                     return <RadioselectComponent item={item} onChange={accomodationExpenseHandler} />;
-                  })}
-               </div>
-               <TextInputComponent
-                  onChange={(e) => console.log(e)}
-                  placeholder="Accommodation Expenses Budget"
-                  label="Accommodation Expenses Budget "
+               <DropdownComponent
+                  style={{ width: '95%' }}
+                  onChange={(value) => console.log('unable', value)}
+                  options={accomodationExpenseOptions}
+                  label="Accommodation Expenses Process"
                />
+               <TextInputComponent onChange={(e) => console.log(e)} placeholder="€300" label="Accommodation Expenses Budget " />
             </div>
          </div>
       );

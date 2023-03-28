@@ -68,6 +68,12 @@ export const allRadioOptions = [
 ];
 
 export const accomodationExpensesOptions = [
+   // first option is disabled and not selectable
+   {
+      title: 'Select',
+      isSelected: false,
+      disabled: true
+   },
    {
       title: 'Direct payment by the employer',
       isSelected: false

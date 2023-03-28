@@ -10,16 +10,10 @@ import AutoCompleteDropdownComponent from '../../utils/autocompletedropdown';
 import { sirenAPI } from '../../../axios/api';
 import FormTitle from '../../formTitle/index';
 import { updateHostEntityForm } from '../../../redux/forms/forms.slice';
-import {
-   activityLevelOptions,
-   countries,
-   accomodationExpensesOptions,
-   dutiesOfRepresentative,
-   ActivityLevelOneOptions,
-   occupations
-} from '../helpers';
+import { activityLevelOptions, countries, accomodationExpensesOptions, dutiesOfRepresentative, ActivityLevelOneOptions } from '../helpers';
 import HostIdentity from './hostIdentity';
 import HostRepresentative from './hostRepresentative';
+import { occupations } from './occupations';
 
 function ServiceInformation({ step }) {
    const dispatch = useDispatch();
