@@ -315,7 +315,6 @@ function ServiceInformation({ step }) {
                   onChange={(e) => onInPutHandler(e, 'infoAboutService', 'hazardousProcess')}
                   placeholder=" reason"
                   label="Please specify"
-                  // style={{ width: '98%' }}
                   defaultValue={hostForm.infoAboutService.hazardousProcess}
                />
             )}
