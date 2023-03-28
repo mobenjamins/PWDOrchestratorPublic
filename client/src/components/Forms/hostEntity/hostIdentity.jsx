@@ -57,11 +57,12 @@ function HostIdentity({ step }) {
                flexDirection: 'row',
                flexWrap: 'wrap',
                justifyContent: 'space-between',
-               alignItems: 'flex-start'
+               alignItems: 'flex-start',
+               height: '100%'
             }}
          >
             <DropdownComponent
-               style={{ width: '440px' }}
+               style={{ width: '335px' }}
                onChange={(value) => onInPutHandler(value, 'identityOfHostCompany', 'country')}
                options={countries}
                label="Country"
@@ -96,7 +97,7 @@ function HostIdentity({ step }) {
                defaultValue={hostForm.identityOfHostCompany.postCode}
             />
             <DropdownComponent
-               style={{ width: '440px' }}
+               style={{ width: '335px' }}
                onChange={(value) => onInPutHandler(value, 'identityOfHostCompany', 'city')}
                options={countries}
                label="Town / city"

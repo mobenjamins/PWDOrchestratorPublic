@@ -297,11 +297,11 @@ function ServiceInformation({ step }) {
                   onChange={(e) => onSearchSelectChange(e, 'activityLevelFour')}
                   options={levelFourOptions}
                   label="Activity Level four"
-                  style={{ width: '100%', marginLeft: '60px', marginRight: '60px' }}
+                  style={{ width: '100%', marginLeft: '60px', marginRight: '60px', marginBottom: '20px' }}
                />
             )}
             <DropdownComponent
-               style={{ width: '440px' }}
+               style={{ width: '335px' }}
                onChange={(e) => onInPutHandler(e.value, 'infoAboutService', 'useOfHazardousProcess')}
                options={[
                   { value: 'true', title: 'Yes' },

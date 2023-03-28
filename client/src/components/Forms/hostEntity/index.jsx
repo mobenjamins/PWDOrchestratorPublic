@@ -11,6 +11,7 @@ import HostIdentity from './hostIdentity';
 import HostRepresentative from './hostRepresentative';
 import ServiceInformation from './serviceInformation';
 import DatesAndService from './datesAndService';
+import InfoIcon from '../../../assets/info-icon.png';
 
 function HostEntityManager({ step }) {
    const dispatch = useDispatch();
@@ -164,6 +165,21 @@ function HostEntityManager({ step }) {
                   alignItems: 'flex-start'
                }}
             >
+               <div
+                  style={{
+                     width: '88%',
+                     // height: '70px',
+                     color: 'black',
+                     display: 'flex',
+                     flexDirection: 'row',
+                     justifyContent: 'center',
+                     margin: '30px'
+                  }}
+               >
+                  <img style={{ marginLeft: '10px', marginRight: '20px' }} src={InfoIcon} className="info-icon Subsection-title" />
+                  The documentation is stored in the company systems. The identity documents and employment contracts are in the HR system. The
+                  payslips are in the payroll system. And the social security documents should be attached below.
+               </div>
                <TextInputComponent
                   onChange={(e) => onInPutHandler(e, 'storeOfDocuments', 'location')}
                   placeholder="At the place where the  services is performed"

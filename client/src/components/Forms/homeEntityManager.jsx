@@ -86,7 +86,8 @@ function HomeEntityManager({ step }) {
                   flexDirection: 'row',
                   flexWrap: 'wrap',
                   justifyContent: 'space-between',
-                  alignItems: 'flex-start'
+                  alignItems: 'flex-start',
+                  height: '100%'
                }}
             >
                <TextInputComponent
@@ -101,14 +102,14 @@ function HomeEntityManager({ step }) {
                />
                <TextInputComponent onChange={(e) => console.log(e)} placeholder="Address" label="Address" />
                <DropdownComponent
-                  style={{ width: '440px' }}
+                  style={{ width: '335px' }}
                   onChange={(value) => console.log('Country ', value)}
                   options={countries}
                   label="Country of birth"
                />
                <TextInputComponent onChange={(e) => console.log(e)} placeholder="Post code" label="PostCode" />
                <DropdownComponent
-                  style={{ width: '440px' }}
+                  style={{ width: '335px' }}
                   onChange={(value) => console.log('Town / city ', value)}
                   options={countries}
                   label="Town / city"
@@ -179,21 +180,22 @@ function HomeEntityManager({ step }) {
                   flexDirection: 'row',
                   flexWrap: 'wrap',
                   justifyContent: 'space-between',
-                  alignItems: 'flex-start'
+                  alignItems: 'flex-start',
+                  height: '100%'
                }}
             >
                <TextInputComponent onChange={(e) => console.log(e)} placeholder="Last name" label="Last name" />
                <TextInputComponent onChange={(e) => console.log(e)} placeholder="First name" label="First name" />
                <TextInputComponent onChange={(e) => console.log(e)} placeholder="Date of birth" label="Date of birth" />
                <DropdownComponent
-                  style={{ width: '440px' }}
+                  style={{ width: '335px' }}
                   onChange={(value) => console.log('Town / City of birth ', value)}
                   options={countries}
                   label="Town / City of birth"
                />
                <TextInputComponent onChange={(e) => console.log(e)} placeholder="Email" label="Town / City of birth" />
                <DropdownComponent
-                  style={{ width: '440px' }}
+                  style={{ width: '335px' }}
                   onChange={(value) => console.log('Country ', value)}
                   options={countries}
                   label="Country of birth"
@@ -251,35 +253,50 @@ function HomeEntityManager({ step }) {
                   flexDirection: 'row',
                   flexWrap: 'wrap',
                   justifyContent: 'space-between',
-                  alignItems: 'flex-start'
+                  alignItems: 'flex-end',
+                  height: '100%'
                }}
             >
                <TextInputComponent
+                  style={{ width: '320px' }}
                   onChange={(e) => console.log(e)}
                   placeholder="Applicable social security legislation "
                   label="Applicable social security legislation "
                />
                <TextInputComponent
+                  style={{ width: '320px' }}
                   onChange={(e) => console.log(e)}
                   placeholder="01 Feb 2023"
                   label="Date of contract signature or start of the working relationship "
                />
                <TextInputComponent
+                  style={{ width: '320px' }}
                   onChange={(e) => console.log(e)}
                   placeholder="true / false"
                   label="Reasoned statement in the context of a long-term posting "
                />
-               <TextInputComponent onChange={(e) => console.log(e)} placeholder="" label="Reason for long-term posting" />
-               <TextInputComponent onChange={(e) => console.log(e)} placeholder="" label="Posting held in France" />
-               <TextInputComponent onChange={(e) => console.log(e)} placeholder="Executive" label="Professional qualification " />
-               <TextInputComponent onChange={(e) => console.log(e)} placeholder="Executive" label="Professional qualification " />
+               <TextInputComponent style={{ width: '320px' }} onChange={(e) => console.log(e)} placeholder="" label="Reason for long-term posting" />
+               <TextInputComponent style={{ width: '320px' }} onChange={(e) => console.log(e)} placeholder="" label="Posting held in France" />
                <TextInputComponent
+                  style={{ width: '320px' }}
+                  onChange={(e) => console.log(e)}
+                  placeholder="Executive"
+                  label="Professional qualification "
+               />
+               <TextInputComponent
+                  style={{ width: '320px' }}
+                  onChange={(e) => console.log(e)}
+                  placeholder="Executive"
+                  label="Professional qualification "
+               />
+               <TextInputComponent
+                  style={{ width: '320px' }}
                   onChange={(e) => console.log(e)}
                   placeholder="ie £300"
                   label="Gross hourly rate of pay applied during the posting (€) "
                />
                <DropdownComponent
-                  style={{ width: '440px' }}
+                  style={{ width: '320px' }}
                   onChange={(value) => console.log('unable', value)}
                   options={trueFalseoptions}
                   label="Unable to provide gross hourly rate?"

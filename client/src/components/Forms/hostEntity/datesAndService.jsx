@@ -144,8 +144,7 @@ function DatesAndService({ step }) {
       <div className="question-section">
          <FormTitle
             infoPopup={{
-               description:
-                  ' Info mation about the new comapny  mation the about the new comapny  Info mation the the new comapny  Info mation the about new comapny  Info mation about the new the  Info mation about the new comapny  Info mation about the new comapny  Info mation about the new comapny ',
+               description: 'Service start dates, estimated end dates, and the place where the service will be provided.',
                videoUrl: 'https://www.youtube.com/embed/4NKanx3JEP4?controls=0&modestbranding=1&showinfo=0&iv_load_policy=3'
             }}
             title="Dates and place of service"
@@ -156,7 +155,8 @@ function DatesAndService({ step }) {
                flexDirection: 'row',
                flexWrap: 'wrap',
                justifyContent: 'space-between',
-               alignItems: 'flex-start'
+               alignItems: 'flex-start',
+               height: '100%'
             }}
          >
             <TextInputComponent
@@ -208,7 +208,7 @@ function DatesAndService({ step }) {
                defaultValue={hostForm.datesAndPlace.postCode}
             />
             <DropdownComponent
-               style={{ width: '440px' }}
+               style={{ width: '335px' }}
                onChange={(e) => onInPutHandler(e, 'datesAndPlace', 'city')}
                options={countries}
                label="Town / city"

@@ -13,6 +13,7 @@
    color: #000000;
    opacity: 0.8;
    margin-bottom: 10px;
+   word-wrap: break-word;
 }
 .standard-input {
    background: #f1f5fb;
@@ -28,7 +29,7 @@
    display: flex;
    flex-direction: row;
    justify-content: space-between;
-   min-width: 400px;
+   min-width: 300px !important;
 
    position: relative;
 }

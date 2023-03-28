@@ -29,13 +29,13 @@ function EmployeeForm({ step }) {
                   <TextInputComponent onChange={(e) => console.log(e)} placeholder="John" label="First name" />
                   <TextInputComponent onChange={(e) => console.log(e)} placeholder="Date of birth" label="13 Jun 1990" />
                   <DropdownComponent
-                     style={{ width: '440px' }}
+                     style={{ width: '335px' }}
                      onChange={(value) => console.log('Town / city ', value)}
                      options={countries}
                      label="Town / city"
                   />
                   <DropdownComponent
-                     style={{ width: '440px' }}
+                     style={{ width: '335px' }}
                      onChange={(value) => console.log('Country ', value)}
                      options={countries}
                      label="Country of birth"
@@ -64,14 +64,14 @@ function EmployeeForm({ step }) {
             >
                <TextInputComponent onChange={(e) => console.log(e)} placeholder="Address" label="Address" />
                <DropdownComponent
-                  style={{ width: '440px' }}
+                  style={{ width: '335px' }}
                   onChange={(value) => console.log('Country ', value)}
                   options={countries}
                   label="Country"
                />
                <TextInputComponent onChange={(e) => console.log(e)} placeholder="Post code" label="PostCode" />
                <DropdownComponent
-                  style={{ width: '440px' }}
+                  style={{ width: '335px' }}
                   onChange={(value) => console.log('Town / city ', value)}
                   options={countries}
                   label="Town / city"

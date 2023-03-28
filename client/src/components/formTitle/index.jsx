@@ -33,7 +33,8 @@ function FormTitle({ title, infoPopup }) {
             display: 'flex',
             flexDirection: 'row',
             alignItems: 'center',
-            marginTop: '10px'
+            marginTop: '10px',
+            marginBottom: '10px'
             // position: 'relative'
          }}
       >

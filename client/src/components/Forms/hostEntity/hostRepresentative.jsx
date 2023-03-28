@@ -242,7 +242,7 @@ function HostRepresentative({ step }) {
                   defaultValue={hostForm.representativeInHostCountry.postCode}
                />
                <DropdownComponent
-                  style={{ width: '440px' }}
+                  style={{ width: '335px' }}
                   onChange={(value) => onInPutHandler(value, 'representativeInHostCountry', 'city')}
                   options={countries}
                   label="Town / city"
